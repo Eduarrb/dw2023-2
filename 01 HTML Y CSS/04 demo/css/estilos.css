@@ -4,15 +4,23 @@ body{
     /* display: flex; */
     /* justify-content: center; */
 }
-article{
-    /* estilos */
-}
+/* NAV */
 nav{
     width: 70%;
-    background-color: peru;
+    /* background-color: peru; */
     margin-right: auto;
     margin-left: auto;
     /* margin: 0 auto; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 20px 0 20px 0; */
+    /* padding: 20px 0; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+nav img{
+    width: 70px;
 }
 nav ul{
     list-style: none;
@@ -20,15 +28,55 @@ nav ul{
     /* padding: 0; */
     padding-left: 0;
     display: flex;
-    border: 5px solid;
+    /* border: 5px solid; */
 }
-
+nav ul li{
+    margin-left: 5px;
+}
 nav ul li a{
     text-decoration: none;
     color: black;
     font-size: 20px;
-    background-color: #e74c3c;
-    padding: 15px;
+    /* background-color: #e74c3c; */
+    padding: 15px 10px;
     /* width: 100px; */
     display: inline-block;
+}
+
+/* HEADER */
+header{
+    position: relative;
+}
+header img{
+    width: 100%;
+    display: block;
+}
+header div{
+    /* background-color: peru; */
+    width: 70%;
+    position: absolute;
+    /* top, left, bottom, right */
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+header div aside{
+    /* background-color: lightcoral; */
+    width: 45%;
+}
+header div aside h2{
+    margin: 0;
+    color: #ff6818;
+    font-family: 'Oswald', sans-serif;
+    font-size: 88px;
+    line-height: 98px; /* el interlineado a 0 = al tamaño de la fuente*/
+}
+header div aside p{
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    font-size: 18px;
+    color: rgb(85, 92, 102);
 }
