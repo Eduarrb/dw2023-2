@@ -1,3 +1,11 @@
+/* CONSTANTES */
+.contenedor{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
 body{
     /* background-color: peru; */
     margin: 0;
@@ -6,16 +14,16 @@ body{
 }
 /* NAV */
 nav{
-    width: 70%;
+    /* width: 70%; */
     /* background-color: peru; */
-    margin-right: auto;
-    margin-left: auto;
+    /* margin-right: auto; */
+    /* margin-left: auto; */
     /* margin: 0 auto; */
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
     align-items: center;
     /* padding: 20px 0 20px 0; */
-    /* padding: 20px 0; */
+    /* padding: 20px 0; */  
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -79,4 +87,105 @@ header div aside p{
     font-style: italic;
     font-size: 18px;
     color: rgb(85, 92, 102);
+    /* margin: 40px 0 40px 0; */
+    /* margin: 40px 0; */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+header div aside form{
+    display: flex;
+}
+
+header div aside form input{
+    font-size: 18px;
+    border: none;
+    outline: 0;
+    padding: 12px 10px;
+    width: 50%;
+}
+header div aside form button{
+    border: none;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+    background-color: #fe6415;
+    color: white;
+    padding: 12px 40px;
+}
+
+/* DON'T REPEAT YOURSELF */
+/* SECTION */
+/* #contenedor{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+} */
+#article1{
+    background-color: #ff6818;
+}
+#article2{
+    background-color: #f43701;
+}
+#article3{
+    background-color: #292d31;
+}
+#article4{
+    background-color: #555c66;
+}
+#icon1{
+    color:#ff6818;
+}
+#icon2{
+    color:#f43701;
+}
+#icon3{
+    color:#292d31;
+}
+#icon4{
+    color:#555c66;
+}
+section{
+    /* margin: 60px 0; */
+    padding: 60px 0;
+    /* background-color: peru; */
+}
+section div article{
+    color: white;
+    padding: 20px 35px 40px 35px;
+    width: 25%;
+}
+
+section div article h2,
+section div article p {
+    margin: 0;
+}
+section div article h2{
+    font-size: 60px;
+    font-family: 'Oswald', sans-serif;
+}
+.subtitulo{
+    font-family: 'Oswald', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 15px 0;
+}
+.descri{
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    line-height: 26px;
+    /* text-align: justify; */
+}
+
+section div article div{
+    width: 64px;
+    height: 64px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    margin-top: 40px;
+    /* cursor: pointer; */
 }
