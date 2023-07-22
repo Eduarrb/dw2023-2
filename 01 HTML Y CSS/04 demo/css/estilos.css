@@ -153,7 +153,7 @@ section{
 section div article{
     color: white;
     padding: 20px 35px 40px 35px;
-    width: 25%;
+    width: 25%; /* 300px  + 35px + 35px*/
 }
 
 section div article h2,
@@ -188,4 +188,52 @@ section div article div{
     font-size: 40px;
     margin-top: 40px;
     /* cursor: pointer; */
+}
+
+/* RESPONSIVE - MEDIA QUERIES */
+@media only screen and (max-width: 970px){
+    header div aside{
+        width: 100%;
+    }
+    header div aside h2{
+        font-size: 60px;
+        line-height: 70px;
+    }
+    #contenedor{
+        flex-wrap: wrap;
+        /* 1000px */
+    }
+    section div article{
+        width: 50%; /* 500px + 35px + 35px = 570 */
+        box-sizing: border-box; /*border, padding */
+    }
+}
+
+@media only screen and (max-width: 680px){
+    header div aside h2{
+        font-size: 45px;
+    }
+    header div aside h2 br{
+        content: "";
+    }
+    header div aside p{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    header div aside form input,
+    header div aside form button{
+        font-size: 14px;
+    }
+    section div article{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 470px){
+    header div aside h2{
+        font-size: 30px;
+    }
+    header div aside p{
+        font-size: 12px;
+    }
 }
