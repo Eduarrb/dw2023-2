@@ -1,0 +1,39 @@
+.top{
+    background-color: #e5e6e8;
+    &__contenedor{
+        // background-color: peru;
+        max-width: 120rem;
+        margin-left: auto;
+        margin-right: auto;
+        &--welcome{
+            font-size: 1.3rem;
+            font-family: $font-open;
+        }
+        &__menu{
+            font-family: $font-raj;
+            font-size: 1.7rem;
+            display: flex;
+            background-color: peru;
+            &__item{
+                &--link{
+                    color: black;
+                    font-weight: 600;
+                    padding: 1.5rem;
+                    background-color: red;
+                }
+                &__select{
+                    font-size: 1.7rem;
+                    border: none;
+                    outline: 0;
+                    background-color: #e5e6e8;
+                    font-family: $font-raj;
+                    font-weight: 600;
+                    option{
+                        font-size: 1.7rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}

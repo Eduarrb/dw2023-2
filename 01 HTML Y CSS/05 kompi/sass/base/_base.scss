@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*
+    div {
+        width: 100px;
+        border : 20px solid red;
+        box-sizing: border-box;
+    }
+
+*/
+html {
+    font-size: 62.5%;
+    // ahora la fuente base es de 10px -> 1rem
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+}
+ul, 
+ol {
+    list-style: none;
+}
+
+input, button{
+    // border: none;
+}
