@@ -1,0 +1,78 @@
+.nav{
+    &__top{
+        &__contenedor{
+            display: flex;
+            justify-content: space-between;
+            &__menuLeft{
+                // background-color: peru;
+                display: flex;
+                align-items: center;
+                &__menu{
+                    display: flex;
+                    margin-left: 3rem;
+                    &__item{
+                        &--link{
+                            font-family: $font-raj;
+                            color: black;
+                            font-size: 1.6rem;
+                            font-weight: 700;
+                            padding: .5rem 1.5rem;
+                            i{
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+            &__menuRight{
+                &__menu{
+                    display: flex;
+                    &__item{
+                        display: flex;
+                        align-items: center;
+                        &--icon{
+                            font-size: 3.2rem;
+                            color: $color-naranja-primario;
+                        }
+                        &__data{
+                            margin-left: .8rem;
+                            div:first-child{
+                                font-family: $font-raj;
+                                font-size: 1.8rem;
+                                font-weight: 700;
+                            }
+                            div:last-child{
+                                font-family: $font-open;
+                                font-size: 1.2rem;
+                                color: rgb(104, 109, 119);
+                            }
+                        }
+                        &--link{
+                            font-size: 1.6rem;
+                            color: black;
+                            font-family: $font-raj;
+                            padding: 0 .5rem;
+                            font-weight: 700;
+                            position: relative;
+                            span{
+                                font-size: 1rem;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                background-color:#d9534f;
+                                display: inline-block;
+                                color: white;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: -6px;
+                                right: -3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

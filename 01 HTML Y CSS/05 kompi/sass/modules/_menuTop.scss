@@ -1,25 +1,28 @@
 .top{
     background-color: #e5e6e8;
     &__contenedor{
-        // background-color: peru;
-        max-width: 120rem;
-        margin-left: auto;
-        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         &--welcome{
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-family: $font-open;
         }
         &__menu{
             font-family: $font-raj;
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             display: flex;
-            background-color: peru;
+            // background-color: peru;
+            align-items: center;
             &__item{
+                i{
+                    font-size: 1.2rem;
+                }
                 &--link{
                     color: black;
                     font-weight: 600;
-                    padding: 1.5rem;
-                    background-color: red;
+                    padding: .5rem 1rem;
+                    // background-color: red;
                 }
                 &__select{
                     font-size: 1.7rem;
@@ -28,6 +31,7 @@
                     background-color: #e5e6e8;
                     font-family: $font-raj;
                     font-weight: 600;
+                    margin: 0 1rem;
                     option{
                         font-size: 1.7rem;
                         font-weight: 600;
