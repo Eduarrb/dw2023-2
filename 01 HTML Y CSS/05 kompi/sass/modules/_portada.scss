@@ -5,13 +5,70 @@
         background-size: cover;
         background-position: center;
         &__degradado{
-            background: rgb(75,85,87);
-            background: linear-gradient(90deg, rgba(75,85,87,1) 0%, rgba(255,255,255,0.07326680672268904) 43%);
+            background: linear-gradient(90deg, #081124 0%, rgba(255,255,255,.008) 80%);
             &__contenedor{
                 &__bienvenida{
-                    height: 70rem;
+                    // height: 70rem;
+                    padding-top: 8rem;
+                    padding-bottom: 30rem;
+                    &--titulo1{
+                        text-transform: uppercase;
+                        font-family: $font-raj;
+                        color: white;
+                        font-size: 7.2rem;
+                    }
+                    &--titulo2{
+                        font-family: $font-raj;
+                        color: white;
+                        font-size: 4rem;
+                    }
+                    &--descri{
+                        font-family: $font-open;
+                        font-size: 1.4rem;
+                        color: white;
+                        line-height: 2.4rem;
+                    }
+                    &--btn{
+                        // background-color: peru;
+                        // padding: 2rem;
+                        // clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
+                        font-size: 1.6rem;
+                        color: white;
+                        font-family: $font-raj;
+                        background-color: $color-naranja-primario;
+                        font-weight: 700;
+                        padding: .8rem 2.2rem;
+                    }
+                }
+                &__ofertas{
+                    display: flex;
+                    column-gap: 2rem;
+                    &__item{
+                        // width: 33.33333333333333%;
+                        width: calc(100% / 3);
+                        height: 30rem;
+                        background-repeat: no-repeat;
+                        &:first-child{
+                            background-image: url(../img/card-bg1.jpg);
+                        }
+                        &:nth-child(even){
+                            background-image: url(../img/card-bg2.jpg);
+                        }
+                        &:last-child{
+                            background-image: url(../img/card-bg3.jpg);
+                        }
+                    }
                 }
             }
         }
+    }
+    &__bottom{
+        // padding: 20rem 0;
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+        background-image: url(../img/pattern-secondary.png);
+        // background-repeat: no-repeat;
+        // background-size: cover;
+        // background-position: center;
     }
 }
