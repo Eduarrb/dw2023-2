@@ -301,5 +301,33 @@ ol {
   top: -6px;
   right: -3px;
 }
+.nav__bottom {
+  background-color: #093aa9;
+}
+.nav__bottom__contenedor__menu {
+  display: flex;
+  justify-content: center;
+}
+.nav__bottom__contenedor__menu__item--link {
+  font-family: "Rajdhani", sans-serif;
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 1.5rem;
+}
+
+.portada__top {
+  background-image: url(../img/hero-home.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.portada__top__degradado {
+  background: rgb(75, 85, 87);
+  background: linear-gradient(90deg, rgb(75, 85, 87) 0%, rgba(255, 255, 255, 0.0732668067) 43%);
+}
+.portada__top__degradado__contenedor__bienvenida {
+  height: 70rem;
+}
 
 /*# sourceMappingURL=estilos.css.map */
