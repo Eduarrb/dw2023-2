@@ -1,0 +1,16 @@
+.novedades{
+    display: flex;
+    column-gap: 2rem;
+    &__col{
+        background-color: peru;
+        width: 50%;
+        &:last-child{
+            display: flex;
+        }
+        &__item{
+            &:first-child{
+                width: 100%;
+            }
+        }
+    }
+}

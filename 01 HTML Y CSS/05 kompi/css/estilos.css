@@ -405,6 +405,9 @@ ol {
 .portada__top__degradado {
   background: linear-gradient(90deg, #081124 0%, rgba(255, 255, 255, 0.008) 80%);
 }
+.portada__top__degradado__contenedor {
+  position: relative;
+}
 .portada__top__degradado__contenedor__bienvenida {
   padding-top: 8rem;
   padding-bottom: 30rem;
@@ -436,12 +439,35 @@ ol {
 }
 .portada__top__degradado__contenedor__ofertas {
   display: flex;
-  column-gap: 2rem;
+  column-gap: 4rem;
+  position: absolute;
+  bottom: -8rem;
+  width: 100%;
 }
 .portada__top__degradado__contenedor__ofertas__item {
   width: 33.3333333333%;
-  height: 30rem;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding: 8rem 2rem 3rem 2rem;
+  box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, 0.2);
+}
+.portada__top__degradado__contenedor__ofertas__item--titulo {
+  font-size: 3.2rem;
+  font-family: "Rajdhani", sans-serif;
+  color: white;
+}
+.portada__top__degradado__contenedor__ofertas__item--descri {
+  font-size: 1.4rem;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+}
+.portada__top__degradado__contenedor__ofertas__item--btn {
+  color: #ff7714;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-top: 2rem;
 }
 .portada__top__degradado__contenedor__ofertas__item:first-child {
   background-image: url(../img/card-bg1.jpg);
@@ -456,6 +482,21 @@ ol {
   padding-top: 7rem;
   padding-bottom: 7rem;
   background-image: url(../img/pattern-secondary.png);
+}
+
+.novedades {
+  display: flex;
+  column-gap: 2rem;
+}
+.novedades__col {
+  background-color: peru;
+  width: 50%;
+}
+.novedades__col:last-child {
+  display: flex;
+}
+.novedades__col__item:first-child {
+  width: 100%;
 }
 
 /*# sourceMappingURL=estilos.css.map */
