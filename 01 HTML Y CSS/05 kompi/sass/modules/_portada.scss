@@ -12,34 +12,6 @@
                     // height: 70rem;
                     padding-top: 8rem;
                     padding-bottom: 30rem;
-                    &--titulo1{
-                        text-transform: uppercase;
-                        font-family: $font-raj;
-                        color: white;
-                        font-size: 7.2rem;
-                    }
-                    &--titulo2{
-                        font-family: $font-raj;
-                        color: white;
-                        font-size: 4rem;
-                    }
-                    &--descri{
-                        font-family: $font-open;
-                        font-size: 1.4rem;
-                        color: white;
-                        line-height: 2.4rem;
-                    }
-                    &--btn{
-                        // background-color: peru;
-                        // padding: 2rem;
-                        // clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);
-                        font-size: 1.6rem;
-                        color: white;
-                        font-family: $font-raj;
-                        background-color: $color-naranja-primario;
-                        font-weight: 700;
-                        padding: .8rem 2.2rem;
-                    }
                 }
                 &__ofertas{
                     display: flex;
@@ -56,16 +28,6 @@
                         background-size: cover;
                         padding: 8rem 2rem 3rem 2rem;
                         box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, .2);
-                        &--titulo{
-                            font-size: 3.2rem;
-                            font-family: $font-raj;
-                            color: white;
-                        }
-                        &--descri{
-                            font-size: 1.4rem;
-                            color: white;
-                            font-family: $font-open;
-                        }
                         &--btn{
                             color: $color-naranja-primario;
                             font-family: $font-raj;

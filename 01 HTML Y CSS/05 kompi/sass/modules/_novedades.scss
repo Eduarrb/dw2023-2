@@ -1,15 +1,37 @@
 .novedades{
     display: flex;
-    column-gap: 2rem;
+    column-gap: 1.5rem;
     &__col{
-        background-color: peru;
+        // background-color: peru;
         width: 50%;
+        &:first-child{
+            background-image: url(../img/build-pc.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
         &:last-child{
             display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
         }
         &__item{
+            // background-color: blue;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
             &:first-child{
                 width: 100%;
+                background-image: url(../img/run-gaming.jpg);
+            }
+            &:nth-child(even){
+                background-image: url(../img/performance.jpg);
+            }
+            &:last-child{
+                background-image: url(../img/game-forwin.jpg);
+            }
+            &:not(:first-child){
+                width: calc(50% - (1.5rem / 2));
             }
         }
     }

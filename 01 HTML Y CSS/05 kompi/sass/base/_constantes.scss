@@ -9,6 +9,45 @@ $color-azul-primario: #093aa9;
     margin-left: auto;
     margin-right: auto;
 }
+.color-blanco{
+    color: white;
+}
+.titulo-n1{
+    font-family: $font-raj;
+    font-size: 7.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.titulo-n2{
+    font-family: $font-raj;
+    font-size: 4rem;
+    font-weight: 700;
+}
+.titulo-n3{
+    font-family: $font-raj;
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+.titulo-n4{
+    font-family: $font-raj;
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+.descri{
+    font-family: $font-open;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+}
+.btn{
+    font-size: 1.6rem;
+    font-family: $font-raj;
+    font-weight: 700;
+    padding: .8rem 2.2rem;
+    border: 1px solid $color-naranja-primario;
+}
+.btnBG-naranja{
+    background-color: $color-naranja-primario;
+}
 
 // MARGINS
 .mr-1{

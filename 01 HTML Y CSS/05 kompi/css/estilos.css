@@ -32,6 +32,53 @@ ol {
   margin-right: auto;
 }
 
+.color-blanco {
+  color: white;
+}
+
+.titulo-n1 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 7.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.titulo-n2 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+.titulo-n3 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+}
+
+.titulo-n4 {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.descri {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.btn {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  padding: 0.8rem 2.2rem;
+  border: 1px solid #ff7714;
+}
+
+.btnBG-naranja {
+  background-color: #ff7714;
+}
+
 .mr-1 {
   margin-right: 1rem;
 }
@@ -412,31 +459,6 @@ ol {
   padding-top: 8rem;
   padding-bottom: 30rem;
 }
-.portada__top__degradado__contenedor__bienvenida--titulo1 {
-  text-transform: uppercase;
-  font-family: "Rajdhani", sans-serif;
-  color: white;
-  font-size: 7.2rem;
-}
-.portada__top__degradado__contenedor__bienvenida--titulo2 {
-  font-family: "Rajdhani", sans-serif;
-  color: white;
-  font-size: 4rem;
-}
-.portada__top__degradado__contenedor__bienvenida--descri {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.4rem;
-  color: white;
-  line-height: 2.4rem;
-}
-.portada__top__degradado__contenedor__bienvenida--btn {
-  font-size: 1.6rem;
-  color: white;
-  font-family: "Rajdhani", sans-serif;
-  background-color: #ff7714;
-  font-weight: 700;
-  padding: 0.8rem 2.2rem;
-}
 .portada__top__degradado__contenedor__ofertas {
   display: flex;
   column-gap: 4rem;
@@ -451,16 +473,6 @@ ol {
   background-size: cover;
   padding: 8rem 2rem 3rem 2rem;
   box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, 0.2);
-}
-.portada__top__degradado__contenedor__ofertas__item--titulo {
-  font-size: 3.2rem;
-  font-family: "Rajdhani", sans-serif;
-  color: white;
-}
-.portada__top__degradado__contenedor__ofertas__item--descri {
-  font-size: 1.4rem;
-  color: white;
-  font-family: "Open Sans", sans-serif;
 }
 .portada__top__degradado__contenedor__ofertas__item--btn {
   color: #ff7714;
@@ -486,17 +498,39 @@ ol {
 
 .novedades {
   display: flex;
-  column-gap: 2rem;
+  column-gap: 1.5rem;
 }
 .novedades__col {
-  background-color: peru;
   width: 50%;
+}
+.novedades__col:first-child {
+  background-image: url(../img/build-pc.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .novedades__col:last-child {
   display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.novedades__col__item {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .novedades__col__item:first-child {
   width: 100%;
+  background-image: url(../img/run-gaming.jpg);
+}
+.novedades__col__item:nth-child(even) {
+  background-image: url(../img/performance.jpg);
+}
+.novedades__col__item:last-child {
+  background-image: url(../img/game-forwin.jpg);
+}
+.novedades__col__item:not(:first-child) {
+  width: calc(50% - 0.75rem);
 }
 
 /*# sourceMappingURL=estilos.css.map */
