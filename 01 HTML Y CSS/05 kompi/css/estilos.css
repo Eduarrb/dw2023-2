@@ -641,4 +641,70 @@ ol {
   width: calc(50% - 0.75rem);
 }
 
+.productos__cajita {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  background-color: #ff7714;
+  display: inline-block;
+  color: white;
+  padding: 0 0.4rem;
+  letter-spacing: 0.3rem;
+  margin-bottom: 0.5rem;
+}
+.productos__headingBox {
+  display: flex;
+  justify-content: space-between;
+}
+.productos__headingBox__col {
+  display: flex;
+  align-items: center;
+}
+.productos__box {
+  border-top: 3px solid #ff7714;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 10rem;
+}
+.productos__box__item {
+  width: 16.6666666667%;
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 4rem;
+}
+.productos__box__item:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+.productos__box__item:nth-child(6) {
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+.productos__box__item img {
+  width: 100%;
+  display: block;
+}
+.productos__box__item p {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem;
+  color: rgb(8, 17, 36);
+  margin-bottom: 1rem;
+}
+.productos__box__item__precio {
+  font-family: "Rajdhani", sans-serif;
+}
+.productos__box__item__precio--real {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.4);
+  text-decoration: line-through;
+}
+.productos__box__item__precio--oferta {
+  color: #ff7714;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
 /*# sourceMappingURL=estilos.css.map */
