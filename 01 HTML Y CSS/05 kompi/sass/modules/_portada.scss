@@ -28,13 +28,6 @@
                         background-size: cover;
                         padding: 8rem 2rem 3rem 2rem;
                         box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, .2);
-                        &--btn{
-                            color: $color-naranja-primario;
-                            font-family: $font-raj;
-                            font-size: 1.6rem;  
-                            font-weight: 700;
-                            margin-top: 2rem;
-                        }
                         &:first-child{
                             background-image: url(../img/card-bg1.jpg);
                         }

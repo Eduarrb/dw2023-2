@@ -36,6 +36,10 @@ ol {
   color: white;
 }
 
+.color-primario {
+  color: #ff7714;
+}
+
 .titulo-n1 {
   font-family: "Rajdhani", sans-serif;
   font-size: 7.2rem;
@@ -47,12 +51,14 @@ ol {
   font-family: "Rajdhani", sans-serif;
   font-size: 4rem;
   font-weight: 700;
+  line-height: 4.2rem;
 }
 
 .titulo-n3 {
   font-family: "Rajdhani", sans-serif;
   font-size: 3.2rem;
   font-weight: 700;
+  line-height: 3.4rem;
 }
 
 .titulo-n4 {
@@ -75,8 +81,27 @@ ol {
   border: 1px solid #ff7714;
 }
 
+.btnNoBorder {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  padding: 0.8rem 2.2rem 0.8rem 0;
+  transition: all 0.3s;
+}
+.btnNoBorder:hover {
+  color: white;
+  transition: all 0.3s;
+}
+
 .btnBG-naranja {
   background-color: #ff7714;
+  transition: all 0.3s;
+}
+.btnBG-naranja:hover {
+  background-color: white;
+  color: #ff7714;
+  border: 1px solid white;
+  transition: all 0.3s;
 }
 
 .mr-1 {
@@ -319,6 +344,86 @@ ol {
   padding-bottom: 10rem;
 }
 
+.pl-1 {
+  padding-left: 1rem;
+}
+
+.pl-2 {
+  padding-left: 2rem;
+}
+
+.pl-3 {
+  padding-left: 3rem;
+}
+
+.pl-4 {
+  padding-left: 4rem;
+}
+
+.pl-5 {
+  padding-left: 5rem;
+}
+
+.pl-6 {
+  padding-left: 6rem;
+}
+
+.pl-7 {
+  padding-left: 7rem;
+}
+
+.pl-8 {
+  padding-left: 8rem;
+}
+
+.pl-9 {
+  padding-left: 9rem;
+}
+
+.pl-10 {
+  padding-left: 10rem;
+}
+
+.pr-1 {
+  padding-right: 1rem;
+}
+
+.pr-2 {
+  padding-right: 2rem;
+}
+
+.pr-3 {
+  padding-right: 3rem;
+}
+
+.pr-4 {
+  padding-right: 4rem;
+}
+
+.pr-5 {
+  padding-right: 5rem;
+}
+
+.pr-6 {
+  padding-right: 6rem;
+}
+
+.pr-7 {
+  padding-right: 7rem;
+}
+
+.pr-8 {
+  padding-right: 8rem;
+}
+
+.pr-9 {
+  padding-right: 9rem;
+}
+
+.pr-10 {
+  padding-right: 10rem;
+}
+
 .top {
   background-color: #e5e6e8;
 }
@@ -474,13 +579,6 @@ ol {
   padding: 8rem 2rem 3rem 2rem;
   box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, 0.2);
 }
-.portada__top__degradado__contenedor__ofertas__item--btn {
-  color: #ff7714;
-  font-family: "Rajdhani", sans-serif;
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-top: 2rem;
-}
 .portada__top__degradado__contenedor__ofertas__item:first-child {
   background-image: url(../img/card-bg1.jpg);
 }
@@ -504,10 +602,11 @@ ol {
   width: 50%;
 }
 .novedades__col:first-child {
-  background-image: url(../img/build-pc.jpg);
+  background: linear-gradient(180deg, rgba(244, 246, 251, 0.1) 0%, rgba(8, 17, 36, 0.9) 100%), url(../img/build-pc.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  padding-top: 40rem;
 }
 .novedades__col:last-child {
   display: flex;
@@ -515,19 +614,28 @@ ol {
   gap: 1.5rem;
 }
 .novedades__col__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.novedades__col__item:first-child {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(244, 246, 251, 0.1) 0%, rgba(8, 17, 36, 0.9) 100%), url(../img/run-gaming.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.novedades__col__item:first-child {
-  width: 100%;
-  background-image: url(../img/run-gaming.jpg);
-}
 .novedades__col__item:nth-child(even) {
-  background-image: url(../img/performance.jpg);
+  background: linear-gradient(180deg, rgba(244, 246, 251, 0.1) 0%, rgba(8, 17, 36, 0.9) 100%), url(../img/performance.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .novedades__col__item:last-child {
-  background-image: url(../img/game-forwin.jpg);
+  background: linear-gradient(180deg, rgba(244, 246, 251, 0.1) 0%, rgba(8, 17, 36, 0.9) 100%), url(../img/game-forwin.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 .novedades__col__item:not(:first-child) {
   width: calc(50% - 0.75rem);

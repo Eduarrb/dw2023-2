@@ -4,6 +4,12 @@ $font-raj: 'Rajdhani', sans-serif;
 $color-naranja-primario: #ff7714;
 $color-azul-primario: #093aa9;
 
+$bg-base: (
+    background-repeat: no-repeat,
+    background-position: center,
+    background-size: cover,
+);
+
 .contenedor{
     max-width: 120rem;
     margin-left: auto;
@@ -11,6 +17,9 @@ $color-azul-primario: #093aa9;
 }
 .color-blanco{
     color: white;
+}
+.color-primario{
+    color: $color-naranja-primario;
 }
 .titulo-n1{
     font-family: $font-raj;
@@ -22,11 +31,13 @@ $color-azul-primario: #093aa9;
     font-family: $font-raj;
     font-size: 4rem;
     font-weight: 700;
+    line-height: 4.2rem;
 }
 .titulo-n3{
     font-family: $font-raj;
     font-size: 3.2rem;
     font-weight: 700;
+    line-height: 3.4rem;
 }
 .titulo-n4{
     font-family: $font-raj;
@@ -45,9 +56,29 @@ $color-azul-primario: #093aa9;
     padding: .8rem 2.2rem;
     border: 1px solid $color-naranja-primario;
 }
+.btnNoBorder{
+    font-size: 1.6rem;
+    font-family: $font-raj;
+    font-weight: 700;
+    padding: .8rem 2.2rem .8rem 0;
+    transition: all .3s;
+    &:hover{
+        color: white;
+        transition: all .3s;
+    }
+}
 .btnBG-naranja{
     background-color: $color-naranja-primario;
+    transition: all .3s; //salida en un punto anterior
+    &:hover{
+        // background-color: #e86304;
+        background-color: white;
+        color: $color-naranja-primario;
+        border: 1px solid white;
+        transition: all .3s; //entrada en el hover
+    }
 }
+
 
 // MARGINS
 .mr-1{
@@ -230,4 +261,64 @@ $color-azul-primario: #093aa9;
 }
 .pb-10{
     padding-bottom: 10rem;
+}
+.pl-1{
+    padding-left: 1rem;
+}
+.pl-2{
+    padding-left: 2rem;
+}
+.pl-3{
+    padding-left: 3rem;
+}
+.pl-4{
+    padding-left: 4rem;
+}
+.pl-5{
+    padding-left: 5rem;
+}
+.pl-6{
+    padding-left: 6rem;
+}
+.pl-7{
+    padding-left: 7rem;
+}
+.pl-8{
+    padding-left: 8rem;
+}
+.pl-9{
+    padding-left: 9rem;
+}
+.pl-10{
+    padding-left: 10rem;
+}
+.pr-1{
+    padding-right: 1rem;
+}
+.pr-2{
+    padding-right: 2rem;
+}
+.pr-3{
+    padding-right: 3rem;
+}
+.pr-4{
+    padding-right: 4rem;
+}
+.pr-5{
+    padding-right: 5rem;
+}
+.pr-6{
+    padding-right: 6rem;
+}
+.pr-7{
+    padding-right: 7rem;
+}
+.pr-8{
+    padding-right: 8rem;
+}
+.pr-9{
+    padding-right: 9rem;
+}
+.pr-10{
+    padding-right: 10rem;
 }

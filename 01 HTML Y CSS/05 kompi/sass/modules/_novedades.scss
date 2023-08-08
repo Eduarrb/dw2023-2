@@ -5,10 +5,13 @@
         // background-color: peru;
         width: 50%;
         &:first-child{
-            background-image: url(../img/build-pc.jpg);
+            // background-image: url(../img/build-pc.jpg);
+            // color: rgba(red, .2)
+            background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/build-pc.jpg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
+            padding-top: 40rem;
         }
         &:last-child{
             display: flex;
@@ -16,19 +19,27 @@
             gap: 1.5rem;
         }
         &__item{
-            // background-color: blue;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
             &:first-child{
                 width: 100%;
-                background-image: url(../img/run-gaming.jpg);
+                background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/run-gaming.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
             }
             &:nth-child(even){
-                background-image: url(../img/performance.jpg);
+                background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/performance.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
             }
             &:last-child{
-                background-image: url(../img/game-forwin.jpg);
+                background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/game-forwin.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
             }
             &:not(:first-child){
                 width: calc(50% - (1.5rem / 2));
