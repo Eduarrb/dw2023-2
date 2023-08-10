@@ -1,3 +1,19 @@
+/*
+    BREAKPOINTS
+    REM & EM
+    DIV : 12PX FONT SIZE
+        : 85PX -> 10REM
+
+    // 992px / 16PX -> 62EM
+    // 768px / 16PX -> 48EM
+    // 576px / 16PX -> 36EM
+    // 420px / 16PX
+    // 380px / 16PX
+*/
+$bp-large: 62em;
+$bp-medium: 48em;
+$bp-small: 36em;
+
 * {
     margin: 0;
     padding: 0;

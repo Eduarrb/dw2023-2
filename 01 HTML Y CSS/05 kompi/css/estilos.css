@@ -1,3 +1,15 @@
+/*
+    BREAKPOINTS
+    REM & EM
+    DIV : 12PX FONT SIZE
+        : 85PX -> 10REM
+
+    // 992px / 16PX -> 62EM
+    // 768px / 16PX -> 48EM
+    // 576px / 16PX -> 36EM
+    // 420px / 16PX
+    // 380px / 16PX
+*/
 * {
   margin: 0;
   padding: 0;
@@ -30,6 +42,11 @@ ol {
   max-width: 120rem;
   margin-left: auto;
   margin-right: auto;
+}
+@media only screen and (max-width: 62em) {
+  .contenedor {
+    max-width: 72rem;
+  }
 }
 
 .color-blanco {
@@ -427,6 +444,11 @@ ol {
 .top {
   background-color: #e5e6e8;
 }
+@media only screen and (max-width: 62em) {
+  .top {
+    display: none;
+  }
+}
 .top__contenedor {
   display: flex;
   justify-content: space-between;
@@ -464,9 +486,27 @@ ol {
   font-weight: 600;
 }
 
+.nav {
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+@media only screen and (max-width: 62em) {
+  .nav {
+    top: 0;
+    border-bottom: 1px solid rgba(9, 58, 169, 0.3);
+  }
+}
+.nav.activar {
+  top: 0;
+}
+.nav__top {
+  background-color: white;
+}
 .nav__top__contenedor {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .nav__top__contenedor__menuLeft {
   display: flex;
@@ -475,6 +515,11 @@ ol {
 .nav__top__contenedor__menuLeft__menu {
   display: flex;
   margin-left: 3rem;
+}
+@media only screen and (max-width: 62em) {
+  .nav__top__contenedor__menuLeft__menu {
+    display: none;
+  }
 }
 .nav__top__contenedor__menuLeft__menu__item--link {
   font-family: "Rajdhani", sans-serif;
@@ -486,12 +531,30 @@ ol {
 .nav__top__contenedor__menuLeft__menu__item--link i {
   font-size: 1.3rem;
 }
+.nav__top__contenedor__menuCenter {
+  background-color: #ff7714;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+@media only screen and (max-width: 62em) {
+  .nav__top__contenedor__menuCenter {
+    display: block;
+  }
+}
 .nav__top__contenedor__menuRight__menu {
   display: flex;
 }
 .nav__top__contenedor__menuRight__menu__item {
   display: flex;
   align-items: center;
+}
+@media only screen and (max-width: 62em) {
+  .nav__top__contenedor__menuRight__menu__item:last-child {
+    display: none;
+  }
 }
 .nav__top__contenedor__menuRight__menu__item--icon {
   font-size: 3.2rem;
@@ -536,6 +599,11 @@ ol {
 .nav__bottom {
   background-color: #093aa9;
 }
+@media only screen and (max-width: 62em) {
+  .nav__bottom {
+    display: none;
+  }
+}
 .nav__bottom__contenedor__menu {
   display: flex;
   justify-content: center;
@@ -548,6 +616,14 @@ ol {
   padding: 1.5rem;
 }
 
+.portada {
+  margin-top: 11.1rem;
+}
+@media only screen and (max-width: 62em) {
+  .portada {
+    margin-top: 6.1rem;
+  }
+}
 .portada__top {
   background-image: url(../img/hero-home.jpg);
   background-repeat: no-repeat;
@@ -571,6 +647,11 @@ ol {
   bottom: -8rem;
   width: 100%;
 }
+@media only screen and (max-width: 62em) {
+  .portada__top__degradado__contenedor__ofertas {
+    column-gap: 2rem;
+  }
+}
 .portada__top__degradado__contenedor__ofertas__item {
   width: 33.3333333333%;
   background-repeat: no-repeat;
@@ -578,6 +659,11 @@ ol {
   background-size: cover;
   padding: 8rem 2rem 3rem 2rem;
   box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, 0.2);
+}
+@media only screen and (max-width: 62em) {
+  .portada__top__degradado__contenedor__ofertas__item {
+    padding: 6rem 2rem 2rem 2rem;
+  }
 }
 .portada__top__degradado__contenedor__ofertas__item:first-child {
   background-image: url(../img/card-bg1.jpg);
@@ -607,6 +693,11 @@ ol {
   background-position: center;
   background-size: cover;
   padding-top: 40rem;
+}
+@media only screen and (max-width: 62em) {
+  .novedades__col:first-child {
+    padding-top: 25rem;
+  }
 }
 .novedades__col:last-child {
   display: flex;
@@ -640,6 +731,11 @@ ol {
 .novedades__col__item:not(:first-child) {
   width: calc(50% - 0.75rem);
 }
+@media only screen and (max-width: 62em) {
+  .novedades__col__item:not(:first-child) {
+    width: 100%;
+  }
+}
 
 .productos__cajita {
   font-family: "Rajdhani", sans-serif;
@@ -660,6 +756,11 @@ ol {
   display: flex;
   align-items: center;
 }
+@media only screen and (max-width: 62em) {
+  .productos__headingBox__col p {
+    display: none;
+  }
+}
 .productos__box {
   border-top: 3px solid #ff7714;
   display: flex;
@@ -673,6 +774,11 @@ ol {
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 4rem;
+}
+@media only screen and (max-width: 62em) {
+  .productos__box__item {
+    width: 25%;
+  }
 }
 .productos__box__item:hover {
   background-color: rgba(0, 0, 0, 0.08);

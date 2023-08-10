@@ -1,8 +1,26 @@
 .nav{
+    position:fixed;
+    width: 100%;
+    z-index: 1;
+    // margin-top: -31px;
+    // .primero #segundo
+    // & .activar => la clase activar es hijo de nav
+    @media only screen and (max-width: $bp-large){
+        top: 0;
+        // box-shadow: 0 0 3px 0 $color-azul-primario;
+        border-bottom: 1px solid rgba($color-azul-primario, .3);
+    }
+    &.activar{ // <nav class="nav activar">
+        // border: 2px solid peru;
+        top: 0;
+        // transition: all .3s;
+    }
     &__top{
+        background-color: white;
         &__contenedor{
             display: flex;
             justify-content: space-between;
+            align-items: center;
             &__menuLeft{
                 // background-color: peru;
                 display: flex;
@@ -10,6 +28,9 @@
                 &__menu{
                     display: flex;
                     margin-left: 3rem;
+                    @media only screen and (max-width: $bp-large){
+                        display: none;
+                    }
                     &__item{
                         &--link{
                             font-family: $font-raj;
@@ -24,12 +45,28 @@
                     }
                 }
             }
+            &__menuCenter{
+                background-color: $color-naranja-primario;
+                color: white;
+                padding: .5rem 1rem;
+                font-size: 1.8rem;
+                cursor: pointer;
+                display: none;
+                @media only screen and (max-width: $bp-large){
+                    display: block;
+                }
+            }
             &__menuRight{
                 &__menu{
                     display: flex;
                     &__item{
                         display: flex;
                         align-items: center;
+                        &:last-child{
+                            @media only screen and (max-width: $bp-large){
+                                display: none;
+                            }
+                        }
                         &--icon{
                             font-size: 3.2rem;
                             color: $color-naranja-primario;
@@ -77,6 +114,9 @@
     }
     &__bottom{
         background-color: $color-azul-primario;
+        @media only screen and (max-width: $bp-large){
+            display: none;
+        }
         &__contenedor{
             &__menu{
                 display: flex;

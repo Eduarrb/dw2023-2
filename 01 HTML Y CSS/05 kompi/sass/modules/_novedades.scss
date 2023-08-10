@@ -12,6 +12,9 @@
             background-position: center;
             background-size: cover;
             padding-top: 40rem;
+            @media only screen and (max-width: $bp-large){
+                padding-top: 25rem;
+            }
         }
         &:last-child{
             display: flex;
@@ -43,6 +46,9 @@
             }
             &:not(:first-child){
                 width: calc(50% - (1.5rem / 2));
+                @media only screen and (max-width: $bp-large){
+                    width: 100%;
+                }
             }
         }
     }
