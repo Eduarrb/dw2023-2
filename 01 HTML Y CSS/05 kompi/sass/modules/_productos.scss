@@ -1,15 +1,4 @@
 .productos{
-    &__cajita{
-        font-family: $font-raj;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        background-color: $color-naranja-primario;
-        display: inline-block;
-        color: white;
-        padding: 0 .4rem;
-        letter-spacing: .3rem;
-        margin-bottom: .5rem;
-    }
     &__headingBox{
         display: flex;
         justify-content: space-between;

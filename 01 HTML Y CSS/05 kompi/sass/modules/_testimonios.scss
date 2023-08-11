@@ -1,0 +1,81 @@
+.testimonios{
+    background-image: url(../img/pattern-dark.png);
+    &__contenedor{
+        display: flex;
+        flex-wrap: wrap;
+        &__left{
+            width: 25%;
+        }
+        &__right{
+            width: 75%;
+            display: flex;
+            column-gap: 3rem;
+            flex-wrap: wrap;
+            &__item{
+                width: calc(50% - 3rem / 2);
+                &:nth-child(odd){
+                    background-color: $color-azul-primario;
+                    h6, h4, p {
+                        color: white
+                    }
+                    .testimonios__contenedor__right__item__persona{
+                        background-color: rgba(white, .1);
+                    }
+                    // &= &:nth-child(odd)__persona__data__per 🔥🔥
+                    .testimonios__contenedor__right__item__persona__data__per{
+                        p{
+                            color: rgb(177, 183, 198);
+                        }
+                    }
+                }
+                &:nth-child(even){
+                    background-color: white;
+                    .testimonios__contenedor__right__item__persona{
+                        background-color: rgba(black, .1);
+                    }
+                    .testimonios__contenedor__right__item__persona__data__per{
+                        p{
+                            color: rgb(104, 109, 119);
+                        }
+                    }
+                }
+                &__comentario{
+                    padding: 3rem;
+                    position: relative;
+                    img{
+                        position: absolute;
+                        display: block;
+                        top: 3.5rem;
+                        right: 4rem;
+                    }
+                }
+                &__persona{
+                    padding: 2rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    &__data{
+                        display: flex;
+                        align-items: center;
+                        &__box{
+                            width: 5.4rem;
+                            height: 5.4rem;
+                            border-radius: 50%;
+                            border: 2px solid white;
+                            margin-right: 2rem;
+                            img{
+                                width: 100%;
+                                display: block;
+                                border-radius: 50%;
+                            }
+                        }
+                    }
+                    &__stars{
+                        color: rgb(254,206,81);
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+}
