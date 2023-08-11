@@ -5,14 +5,25 @@
         flex-wrap: wrap;
         &__left{
             width: 25%;
+            @media only screen and (max-width: $bp-large){
+                width: 100%;
+                margin-bottom: 4rem;
+            }
         }
         &__right{
             width: 75%;
             display: flex;
             column-gap: 3rem;
+            row-gap: 1rem;
             flex-wrap: wrap;
+            @media only screen and (max-width: $bp-large){
+                width: 100%;
+            }
             &__item{
                 width: calc(50% - 3rem / 2);
+                @media only screen and (max-width: $bp-medium){
+                    width: 100%;
+                }
                 &:nth-child(odd){
                     background-color: $color-azul-primario;
                     h6, h4, p {

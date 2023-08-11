@@ -30,6 +30,9 @@ $bp-small: 36em;
 html {
     font-size: 62.5%;
     // ahora la fuente base es de 10px -> 1rem
+    @media only screen and (max-width: $bp-small){
+        font-size: 50%; // 1rem = 8px
+    }
 }
 
 a {

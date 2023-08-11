@@ -12,13 +12,20 @@
             background: linear-gradient(90deg, #081124 0%, rgba(255,255,255,.008) 80%);
             &__contenedor{
                 position: relative;
+                @media only screen and (max-width: $bp-medium){
+                    padding-bottom: 8rem;
+                }
                 &__bienvenida{
                     // height: 70rem;
                     padding-top: 8rem;
                     padding-bottom: 30rem;
+                    @media only screen and (max-width: $bp-medium){
+                        padding-bottom: 4rem;
+                    }
                 }
                 &__ofertas{
                     display: flex;
+                    flex-wrap: wrap;
                     column-gap: 4rem;
                     position: absolute;
                     bottom: -8rem;
@@ -26,9 +33,13 @@
                     @media only screen and (max-width: $bp-large){
                         column-gap: 2rem;
                     }
+                    @media only screen and (max-width: $bp-medium){
+                        position: unset;
+                        row-gap: 3rem;
+                    }
                     &__item{
                         // width: 33.33333333333333%;
-                        width: calc(100% / 3);
+                        width: calc(100% / 3 - 8rem / 3);
                         // height: 30rem;
                         background-repeat: no-repeat;
                         background-position: center;
@@ -37,6 +48,9 @@
                         box-shadow: 1rem 1rem 0 0 rgba(255, 255, 255, .2);
                         @media only screen and (max-width: $bp-large){
                             padding: 6rem 2rem 2rem 2rem;
+                        }
+                        @media only screen and (max-width: $bp-medium){
+                            width: 100%;
                         }
                         &:first-child{
                             background-image: url(../img/card-bg1.jpg);
@@ -60,5 +74,8 @@
         // background-repeat: no-repeat;
         // background-size: cover;
         // background-position: center;
+        @media only screen and (max-width: $bp-medium){
+            display: none;
+        }
     }
 }

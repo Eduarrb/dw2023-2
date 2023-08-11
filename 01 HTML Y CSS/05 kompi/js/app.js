@@ -8,6 +8,10 @@
 */
 const nav = document.querySelector('.nav');
 
+const menu = document.querySelector('.nav__top__contenedor__menuLeft__menu');
+
+const btn = document.querySelector('.nav__top__contenedor__menuCenter');
+
 window.addEventListener('scroll', function(){
     // console.log('hiciste scroll');
     // console.log(window.pageYOffset);
@@ -19,4 +23,9 @@ window.addEventListener('scroll', function(){
         // console.log('es menor a 31');
         nav.classList.remove('activar');
     }
+});
+
+btn.addEventListener('click', function(){
+    // console.log('hiciste click');
+    menu.classList.toggle('active');
 });
