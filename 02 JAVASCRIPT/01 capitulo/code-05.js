@@ -41,3 +41,18 @@ if(!bool){
 } else {
     console.log('es falso');
 }
+
+// ⚡⚡ WHILE
+const nombres = ['Joshi', 'Luigui', 'Peache', 'Kuppa', 'Toad', 'Mario'];
+
+let c = 0;
+
+let html = '';
+while(c < nombres.length){
+    console.log(nombres[c]);
+    html += `<p>${nombres[c]}</p>`;
+    c++;
+}
+
+const bloque = document.querySelector('.bloque1');
+bloque.innerHTML = html;
