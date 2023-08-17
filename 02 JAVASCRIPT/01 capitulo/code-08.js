@@ -62,7 +62,7 @@ let personaje = {
         for(let i = 0; i < this.skills.length; i++){
             console.log(`Skill = ${this.skills[i]}`);
         }
-    }
+    },
 }
 
 personaje.saltar();
@@ -76,13 +76,33 @@ let carro = {
     color: ['blanco', 'turquesa', 'celeste', 'rosita pardo'],
     modelo: 'Sentra',
     numPuertas: 5,
+    plantilla: '',
     // 1 metodo para imprimir en consola los colores
     printColors: function(){
         for(let i = 0; i < this.color.length; i++){
             console.log(this.color[i]);
         }
-    }
+    },
     // 2: uno o mas metodos para imprimir en el html
+    // 1️⃣ crer la plantilla
+    crearPlantilla: function(){
+        for(let i = 0; i < this.color.length; i++){
+            this.plantilla += `<h1>${this.color[i]}</h1>`;
+        }
+    },
+    // 2️⃣ imprimir en el html
+    printIntoHtml: function(){
+        let bloque = document.querySelector('.bloque1');
+        bloque.innerHTML = this.plantilla;
+    },
+    // 🛑 THIS en arrow function dentro de un objeto no funciona igual que una funcion de expresion
+    printModelo: () => {
+        console.log(this);
+    }
 }
 
 carro.printColors();
+carro.crearPlantilla();
+carro.printIntoHtml();
+// console.log(carro.plantilla);
+carro.printModelo(); // no va a funcionar como las funciones de expresion
