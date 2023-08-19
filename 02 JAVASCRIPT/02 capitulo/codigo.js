@@ -32,9 +32,22 @@ btn.addEventListener('click', () => {
 //     console.log(items[i]);
 // }
 // tipos de objetos arrays, podemos usar metodos de arrays
-items.forEach(function(el, indice){
-    // console.log(indice, el);
-    el.addEventListener('click', function(){
-        el.remove();
-    });
-});
+// items.forEach(function(el, indice){
+//     // console.log(indice, el);
+//     el.addEventListener('click', function(){
+//         el.remove();
+//     });
+// });
+
+// 3️⃣ EVENT DELEGATION
+
+const eliminarItem = (evento) => {
+    // console.log('hiciste click');
+    // console.log(evento.target.tagName);
+    if(evento.target.tagName === 'LI'){
+        // console.log('aqui deberia borrar el elemento');
+        evento.target.remove();
+    }
+}
+
+ul.addEventListener('click', eliminarItem);
