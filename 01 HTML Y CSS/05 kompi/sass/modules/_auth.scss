@@ -1,0 +1,22 @@
+.auth{
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    &__data{
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &__form{
+            width: 40%;
+        }
+    }
+    &__loginImgBox{
+        width: 40%;
+        background-image: url(../img/login-img.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+}

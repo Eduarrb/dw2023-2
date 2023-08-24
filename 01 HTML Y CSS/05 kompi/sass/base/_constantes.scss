@@ -34,11 +34,20 @@ $bg-base: (
 .color-primario{
     color: $color-naranja-primario;
 }
+.text-center{
+    text-align: center;
+}
 .titulo-n1{
     font-family: $font-raj;
     font-size: 7.2rem;
     font-weight: 700;
     text-transform: uppercase;
+}
+.tituloPro{
+    font-family: $font-raj;
+    font-size: 4.8rem;
+    font-weight: 700;
+    line-height: 4.2rem;
 }
 .titulo-n2{
     font-family: $font-raj;
@@ -90,6 +99,16 @@ $bg-base: (
         transition: all .3s;
     }
 }
+.btnFullWidth{
+    font-size: 1.6rem;
+    font-family: $font-raj;
+    font-weight: 700;
+    padding: .8rem 2.2rem;
+    width: 100%;
+    border: none;
+    background-color: $color-naranja-primario;
+    cursor: pointer;
+}
 .btnBG-naranja{
     background-color: $color-naranja-primario;
     transition: all .3s; //salida en un punto anterior
@@ -111,6 +130,21 @@ $bg-base: (
     padding: 0 .4rem;
     letter-spacing: .3rem;
     margin-bottom: .5rem;
+}
+.form-group{
+    input[type=text],
+    input[type=password]{
+        width: 100%;
+        font-family: $font-open;
+        font-size: 1.4rem;
+        padding: 1rem;
+        border: none;
+        outline: 0;
+        border: 1px solid rgba(black, .2);
+    }
+}
+.marginMain{
+    margin-top: 11.1rem;
 }
 // MARGINS
 .mr-1{
