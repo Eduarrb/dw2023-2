@@ -2,8 +2,19 @@ import express from 'express';
 import landingRoutes from './routes/landingRoutes.js';
 import usuariosRoutes from './routes/usuariosRoutes.js';
 import expressEjsLayouts from 'express-ejs-layouts';
+import db from './config/db.js';
 
 const app = express();
+
+app.use(express.urlencoded({ extended: true }));
+
+try {
+    await db.authenticate();
+    db.sync();
+    console.log('Conectado a la base de datos');
+} catch (error) {
+    console.log(error);
+}
 
 app.use(expressEjsLayouts);
 app.set('view engine', 'ejs');

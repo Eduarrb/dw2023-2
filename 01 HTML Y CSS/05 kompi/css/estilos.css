@@ -188,6 +188,7 @@ ol {
 }
 
 .form-group input[type=text],
+.form-group input[type=email],
 .form-group input[type=password] {
   width: 100%;
   font-family: "Open Sans", sans-serif;
@@ -196,6 +197,15 @@ ol {
   border: none;
   outline: 0;
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.mensaje {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  color: #1abc9c;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .marginMain {
@@ -1157,6 +1167,12 @@ ol {
 }
 .auth__data__form {
   width: 40%;
+}
+.auth__data__form--error {
+  font-size: 1.4rem;
+  font-family: "Open Sans", sans-serif;
+  color: #e74c3c;
+  text-align: right;
 }
 .auth__loginImgBox {
   width: 40%;

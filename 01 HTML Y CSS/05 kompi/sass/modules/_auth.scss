@@ -10,6 +10,12 @@
         justify-content: center;
         &__form{
             width: 40%;
+            &--error{
+                font-size: 1.4rem;
+                font-family: $font-open;
+                color: #e74c3c;
+                text-align: right;
+            }
         }
     }
     &__loginImgBox{
