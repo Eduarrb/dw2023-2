@@ -1,0 +1,15 @@
+<section class="auth">
+    <div class="auth__data">
+        <img src="/img/logo-kompi-dark.png" alt="" class="auth__data__logo mb-10">
+        <h1 class="titulo-n2 text-center mb-5">Confirmar Cuenta</h1>
+        <p class="descri text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget ultricies nibh mattis tortor egestas dis at ipsum.</p>
+        <% if(error){ %>
+            <p class="error"><%- mensaje %></p>
+            <a href="/auth/register" class="btn btnBG-naranja mt-5 color-blanco">Registrate</a>
+        <% } else { %>
+            <p class="mensaje"><%- mensaje %></p>
+            <a href="/auth/login" class="btn btnBG-naranja mt-5 color-blanco">Iniciar Cuenta</a>
+        <% } %>
+    </div>
+    <div class="auth__loginImgBox"></div>
+</section>

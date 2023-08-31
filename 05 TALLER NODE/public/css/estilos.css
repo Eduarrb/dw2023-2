@@ -208,6 +208,15 @@ ol {
   text-transform: uppercase;
 }
 
+.error {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  color: #e74c3c;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
 .marginMain {
   margin-top: 11.1rem;
 }

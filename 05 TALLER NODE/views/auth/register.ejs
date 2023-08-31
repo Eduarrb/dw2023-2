@@ -4,6 +4,7 @@
         <h1 class="titulo-n2 text-center mb-5">Costumer Register</h1>
         <p class="descri text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget ultricies nibh mattis tortor egestas dis at ipsum.</p>
         <form action="/auth/register" class="auth__data__form mt-4" method="post">
+            <input type="hidden" name="_csrf" value=<%- csrfToken %>>
             <div class="form-group mb-2">
                 <input 
                     type="text" 

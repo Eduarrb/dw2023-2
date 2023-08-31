@@ -1,12 +1,14 @@
 import Usuarios from '../models/Usuarios.js';
 import { body, validationResult } from 'express-validator';
 import { generarId } from '../helpers/tokens.js';
+import { emailRegistro } from '../helpers/email.js';
 
 const formularioRegistro = (req, res) => {
     res.render('auth/register', {
         tituloPagina: 'Kompi - Register',
         errores: '',
-        usuario: ''
+        usuario: '',
+        csrfToken: req.csrfToken(),
     });
 };
 
@@ -40,51 +42,84 @@ const registrar = async (req, res) => {
                 nombre: req.body.nombre,
                 email: req.body.email,
             },
+            csrfToken: req.csrfToken()
         });
     }
     // 🔥 verificar usuarios duplicados
     const existeUsuario = await Usuarios.findOne({
         where: {
-            email: req.body.email
-        }
+            email: req.body.email,
+        },
     });
 
-    if(existeUsuario){
+    if (existeUsuario) {
         return res.render('auth/register', {
             tituloPagina: 'Kompi - Register',
             errores: {
-                email: 'Este correo ya esta registrado'
+                email: 'Este correo ya esta registrado',
             },
             usuario: {
                 nombre: req.body.nombre,
                 email: req.body.email,
             },
-        })
+            csrfToken: req.csrfToken()
+        });
     }
 
     // 🔥🔥Almacenar los datos del usuario
-    // const usuario = await Usuarios.create(req.body);
-    // res.json(usuario);
-
     const { nombre, email, password } = req.body;
-    await Usuarios.create({
+    const usuario = await Usuarios.create({
         nombre,
-        email, 
+        email,
         password,
-        token: generarId()
+        token: generarId(),
     });
 
-    res.render('auth/login',{
+    emailRegistro({
+        nombre: usuario.nombre,
+        email: usuario.email,
+        token: usuario.token,
+    });
+
+    res.render('auth/login', {
         tituloPagina: 'Kompi - Login',
-        mensaje: 'Hemos enviado un correo de verificación, por favor revisa tu bandeja de entrada'
-    })
+        mensaje:
+            'Hemos enviado un correo de verificación, por favor revisa tu bandeja de entrada',
+    });
+};
+
+const confirmar = async (req, res) => {
+    const { token } = req.params;
+
+    const usuario = await Usuarios.findOne({
+        where: {
+            token,
+        },
+    });
+    if (!usuario) {
+        return res.render('auth/confirmar-cuenta', {
+            tituloPagina: 'Kompi - Error de conformación',
+            mensaje: 'Error, intenta otra vez',
+            error: true,
+        });
+    }
+
+    usuario.token = '';
+    usuario.confirmado = true;
+
+    await usuario.save();
+    res.render('auth/confirmar-cuenta', {
+        tituloPagina: 'Kompi - Cuenta Confirmada',
+        mensaje: 'La cuenta se confirmo correctamente',
+        error: false,
+    });
 
 };
 
 const formularioLogin = (req, res) => {
     res.render('auth/login', {
         tituloPagina: 'Kompi - Login',
-        mensaje: ''
+        mensaje: '',
     });
 };
 
@@ -94,4 +129,10 @@ const formularioOlvidePass = (req, res) => {
     });
 };
 
-export { formularioRegistro, formularioLogin, formularioOlvidePass, registrar };
+export {
+    formularioRegistro,
+    formularioLogin,
+    formularioOlvidePass,
+    registrar,
+    confirmar,
+};

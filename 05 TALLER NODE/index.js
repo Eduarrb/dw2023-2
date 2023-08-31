@@ -1,12 +1,21 @@
 import express from 'express';
+
+import csrf from 'csurf';
+import cookieParser from 'cookie-parser';
+
 import landingRoutes from './routes/landingRoutes.js';
 import usuariosRoutes from './routes/usuariosRoutes.js';
+
 import expressEjsLayouts from 'express-ejs-layouts';
+
 import db from './config/db.js';
 
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(cookieParser());
+app.use(csrf({ cookie: true }));
 
 try {
     await db.authenticate();
