@@ -1,7 +1,8 @@
 import Usuarios from '../models/Usuarios.js';
 import { body, validationResult } from 'express-validator';
 import { generarId } from '../helpers/tokens.js';
-import { emailRegistro } from '../helpers/email.js';
+import { emailRegistro, olvidePassword } from '../helpers/email.js';
+import bcrypt from 'bcrypt';
 
 const formularioRegistro = (req, res) => {
     res.render('auth/register', {
@@ -42,7 +43,7 @@ const registrar = async (req, res) => {
                 nombre: req.body.nombre,
                 email: req.body.email,
             },
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
         });
     }
     // 🔥 verificar usuarios duplicados
@@ -62,7 +63,7 @@ const registrar = async (req, res) => {
                 nombre: req.body.nombre,
                 email: req.body.email,
             },
-            csrfToken: req.csrfToken()
+            csrfToken: req.csrfToken(),
         });
     }
 
@@ -113,7 +114,6 @@ const confirmar = async (req, res) => {
         mensaje: 'La cuenta se confirmo correctamente',
         error: false,
     });
-
 };
 
 const formularioLogin = (req, res) => {
@@ -124,8 +124,119 @@ const formularioLogin = (req, res) => {
 };
 
 const formularioOlvidePass = (req, res) => {
-    res.render('auth/olvidePass', {
+    res.render('auth/olvide-password', {
         tituloPagina: 'Kompi - Recuperar password',
+        csrfToken: req.csrfToken(),
+        errores: '',
+    });
+};
+
+const resetPassword = async (req, res) => {
+    await body('email')
+        .isEmail()
+        .withMessage('Debe ser un correo valido')
+        .run(req);
+    let resultado = validationResult(req);
+    if (!resultado.isEmpty()) {
+        let errores = resultado
+            .array()
+            .reduce((obj, item) => ((obj[item.path] = item.msg), obj), {});
+        return res.render('auth/olvide-password', {
+            tituloPagina: 'Kompi - Recuperar password',
+            errores,
+            csrfToken: req.csrfToken(),
+        });
+    }
+    const { email } = req.body;
+    const usuario = await Usuarios.findOne({
+        where: {
+            email,
+        },
+    });
+    if (!usuario) {
+        return res.render('auth/olvide-password', {
+            tituloPagina: 'Kompi - Recuperar password',
+            errores: { email: 'El email no pertenece a ningun usuario' },
+            csrfToken: req.csrfToken(),
+        });
+    }
+
+    usuario.token = generarId();
+    await usuario.save();
+
+    olvidePassword({
+        email: usuario.email,
+        nombre: usuario.nombre,
+        token: usuario.token,
+    });
+    res.render('auth/mensaje', {
+        tituloPagina: 'Restablecer Password',
+        mensaje: 'Hemos enviado un correo con las instrucciones',
+    });
+};
+
+const comprobarToken = async (req, res) => {
+    const { token } = req.params;
+    const usuario = await Usuarios.findOne({
+        where: {
+            token,
+        },
+    });
+    if (!usuario) {
+        return res.render('auth/confirmar-cuenta', {
+            tituloPagina: 'Restablecer Password',
+            mensaje: 'Error, intenta otra vez',
+            error: true,
+        });
+    }
+
+    res.render('auth/reset-password', {
+        tituloPagina: 'Kompi - Recuperar password',
+        errores: '',
+        csrfToken: req.csrfToken(),
+    });
+};
+
+const nuevoPassword = async (req, res) => {
+    // console.log('guardando password');
+    await body('password')
+        .isLength({ min: 6 })
+        .withMessage('Debe contener min 6 caracteres')
+        .run(req);
+    await body('repetirPassword')
+        .equals(req.body.password)
+        .withMessage('Los password deben coincidir')
+        .run(req);
+    let resultado = validationResult(req);
+    if (!resultado.isEmpty()) {
+        let errores = resultado
+            .array()
+            .reduce((obj, item) => ((obj[item.path] = item.msg), obj), {});
+        return res.render('auth/reset-password', {
+            tituloPagina: 'Kompi - Recuperar password',
+            errores,
+            csrfToken: req.csrfToken(),
+        });
+    }
+
+    const { token } = req.params;
+    const { password } = req.body;
+
+    const usuario = await Usuarios.findOne({
+        where: {
+            token,
+        },
+    });
+
+    const salt = await bcrypt.genSalt(10);
+    usuario.password = await bcrypt.hash(password, salt);
+    usuario.token = null;
+    await usuario.save();
+
+    res.render('auth/confirmar-cuenta', {
+        tituloPagina: 'Password Restablecido',
+        mensaje: 'El password se guardo satisfactoriamente',
+        error: false,
     });
 };
 
@@ -135,4 +246,7 @@ export {
     formularioOlvidePass,
     registrar,
     confirmar,
+    resetPassword,
+    comprobarToken,
+    nuevoPassword,
 };
