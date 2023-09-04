@@ -1,8 +1,100 @@
 import Usuarios from '../models/Usuarios.js';
 import { body, validationResult } from 'express-validator';
-import { generarId } from '../helpers/tokens.js';
+import { generarId, generarJWT } from '../helpers/tokens.js';
 import { emailRegistro, olvidePassword } from '../helpers/email.js';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+
+const formularioLogin = (req, res) => {
+    res.render('auth/login', {
+        tituloPagina: 'Kompi - Login',
+        csrfToken: req.csrfToken(),
+        mensaje: '',
+        usuario: '',
+        errores: '',
+    });
+};
+
+const autenticar = async (req, res) => {
+    await body('email')
+        .isEmail()
+        .withMessage('Debe ser un correo valido')
+        .run(req);
+    await body('password')
+        .notEmpty()
+        .withMessage('Debe tener un password obligatorio')
+        .run(req);
+
+    let resultado = validationResult(req);
+    if (!resultado.isEmpty()) {
+        let errores = resultado
+            .array()
+            .reduce((obj, item) => ((obj[item.path] = item.msg), obj), {});
+        return res.render('auth/Login', {
+            tituloPagina: 'Kompi - Login',
+            errores,
+            mensaje: '',
+            usuario: {
+                email: req.body.email,
+            },
+            csrfToken: req.csrfToken(),
+        });
+    }
+
+    const { email, password } = req.body;
+    const usuario = await Usuarios.findOne({
+        where: {
+            email,
+        },
+    });
+    if (!usuario) {
+        return res.render('auth/login', {
+            tituloPagina: 'Kompi - Login',
+            csrfToken: req.csrfToken(),
+            mensaje: 'El usuario no existe',
+            usuario: {
+                email: req.body.email,
+            },
+            errores: '',
+        });
+    }
+    if (!usuario.confirmado) {
+        return res.render('auth/login', {
+            tituloPagina: 'Kompi - Login',
+            csrfToken: req.csrfToken(),
+            mensaje: 'El usuario no activado',
+            usuario: {
+                email: req.body.email,
+            },
+            errores: '',
+        });
+    }
+
+    // 🔥🔥 validar password
+    if (!usuario.verificarPassword(password)) {
+        return res.render('auth/login', {
+            tituloPagina: 'Kompi - Login',
+            csrfToken: req.csrfToken(),
+            mensaje: '',
+            usuario: {
+                email: req.body.email,
+            },
+            errores: {
+                password: 'El password no es correcto, intente otra vez',
+            },
+        });
+    }
+
+    // 🔥🔥 Iniciando sesion genrando un jwt
+    const token = generarJWT({
+        id: usuario.id,
+        nombre: usuario.nombre,
+    });
+
+    return res.cookie('_token', token, {
+        httpOnly: true
+    }).redirect('/');
+};
 
 const formularioRegistro = (req, res) => {
     res.render('auth/register', {
@@ -86,6 +178,9 @@ const registrar = async (req, res) => {
         tituloPagina: 'Kompi - Login',
         mensaje:
             'Hemos enviado un correo de verificación, por favor revisa tu bandeja de entrada',
+        csrfToken: req.csrfToken(),
+        usuario: '',
+        errores: '',
     });
 };
 
@@ -113,13 +208,6 @@ const confirmar = async (req, res) => {
         tituloPagina: 'Kompi - Cuenta Confirmada',
         mensaje: 'La cuenta se confirmo correctamente',
         error: false,
-    });
-};
-
-const formularioLogin = (req, res) => {
-    res.render('auth/login', {
-        tituloPagina: 'Kompi - Login',
-        mensaje: '',
     });
 };
 
@@ -169,9 +257,14 @@ const resetPassword = async (req, res) => {
         nombre: usuario.nombre,
         token: usuario.token,
     });
+
+    req.flash('mensaje', ['Hemos enviado un correo con las instrucciones']);
+    res.redirect('/auth/restablecer-confirmar');
+};
+
+const restablecerConfirmar = (req, res) => {
     res.render('auth/mensaje', {
-        tituloPagina: 'Restablecer Password',
-        mensaje: 'Hemos enviado un correo con las instrucciones',
+        tituloPagina: 'confirmacion de Restablecer Password',
     });
 };
 
@@ -198,7 +291,6 @@ const comprobarToken = async (req, res) => {
 };
 
 const nuevoPassword = async (req, res) => {
-    // console.log('guardando password');
     await body('password')
         .isLength({ min: 6 })
         .withMessage('Debe contener min 6 caracteres')
@@ -241,12 +333,14 @@ const nuevoPassword = async (req, res) => {
 };
 
 export {
-    formularioRegistro,
     formularioLogin,
+    autenticar,
+    formularioRegistro,
     formularioOlvidePass,
     registrar,
     confirmar,
     resetPassword,
     comprobarToken,
     nuevoPassword,
+    restablecerConfirmar,
 };
