@@ -1,7 +1,10 @@
-const prueba = (req, res) => {
-    console.log('hemos renderizado a los productos');
+const formularioProductos = (req, res) => {
+    res.render('productos/ver', {
+        tituloPagina: 'Kompi - Login',
+        csrfToken: req.csrfToken(),
+    });
 }
 
 export {
-    prueba
+    formularioProductos
 }

@@ -1,0 +1,43 @@
+.admin {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 100vh;
+    &__menu {
+        width: 15%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #16a085;
+        &__box{
+            &__item{
+                &--link{
+                    font-family: $font-raj;
+                    font-size: 2.4rem;
+                    font-weight: 700;
+                    color: white;
+                    padding: 1rem;
+                    &:hover{
+                        color: #f1c40f;
+                    }
+                }
+            }
+        }
+    }
+    &__data {
+        width: 85%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &__form {
+            width: 40%;
+            &--error {
+                font-size: 1.4rem;
+                font-family: $font-open;
+                color: #e74c3c;
+                text-align: right;
+            }
+        }
+    }
+}

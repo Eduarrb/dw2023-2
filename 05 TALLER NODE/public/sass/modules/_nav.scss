@@ -1,0 +1,154 @@
+.nav{
+    position:fixed;
+    width: 100%;
+    z-index: 1;
+    // margin-top: -31px;
+    // .primero #segundo
+    // & .activar => la clase activar es hijo de nav
+    @media only screen and (max-width: $bp-large){
+        top: 0;
+        // box-shadow: 0 0 3px 0 $color-azul-primario;
+        border-bottom: 1px solid rgba($color-azul-primario, .3);
+    }
+    &.activar{ // <nav class="nav activar">
+        // border: 2px solid peru;
+        top: 0;
+        // transition: all .3s;
+    }
+    &__top{
+        background-color: white;
+        &__contenedor{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &__menuLeft{
+                // background-color: peru;
+                display: flex;
+                align-items: center;
+                &__menu{
+                    display: flex;
+                    margin-left: 3rem;
+                    @media only screen and (max-width: $bp-large){
+                        // display: none;
+                        position: absolute;
+                        background-color: rgba(black, .8);
+                        top: 0;
+                        left: -18rem;
+                        margin-left: 0;
+                        height: 100vh;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 18rem;
+                        transition: all .3s;
+                        &.active{
+                            left: 0;
+                            transition: all .3s;
+                        }
+                    }
+                    &__item{
+                        &--link{
+                            font-family: $font-raj;
+                            color: black;
+                            font-size: 1.6rem;
+                            font-weight: 700;
+                            padding: .5rem 1.5rem;
+                            @media only screen and (max-width: $bp-large){
+                                color: white;
+                                font-size: 2.8rem;
+                            }
+                            i{
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+            &__menuCenter{
+                background-color: $color-naranja-primario;
+                color: white;
+                padding: .5rem 1rem;
+                font-size: 1.8rem;
+                cursor: pointer;
+                display: none;
+                @media only screen and (max-width: $bp-large){
+                    display: block;
+                }
+            }
+            &__menuRight{
+                &__menu{
+                    display: flex;
+                    &__item{
+                        display: flex;
+                        align-items: center;
+                        &:last-child{
+                            @media only screen and (max-width: $bp-large){
+                                display: none;
+                            }
+                        }
+                        &--icon{
+                            font-size: 3.2rem;
+                            color: $color-naranja-primario;
+                        }
+                        &__data{
+                            margin-left: .8rem;
+                            div:first-child{
+                                font-family: $font-raj;
+                                font-size: 1.8rem;
+                                font-weight: 700;
+                            }
+                            div:last-child{
+                                font-family: $font-open;
+                                font-size: 1.2rem;
+                                color: rgb(104, 109, 119);
+                            }
+                        }
+                        &--link{
+                            font-size: 1.6rem;
+                            color: black;
+                            font-family: $font-raj;
+                            padding: 0 .5rem;
+                            font-weight: 700;
+                            position: relative;
+                            span{
+                                font-size: 1rem;
+                                width: 1.5rem;
+                                height: 1.5rem;
+                                background-color:#d9534f;
+                                display: inline-block;
+                                color: white;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                border-radius: 50%;
+                                position: absolute;
+                                top: -6px;
+                                right: -3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__bottom{
+        background-color: $color-azul-primario;
+        @media only screen and (max-width: $bp-large){
+            display: none;
+        }
+        &__contenedor{
+            &__menu{
+                display: flex;
+                justify-content: center;
+                &__item{
+                    &--link{
+                        font-family: $font-raj;
+                        color: white;
+                        font-size: 1.6rem;
+                        font-weight: 700;
+                        padding: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

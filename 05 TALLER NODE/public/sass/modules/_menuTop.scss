@@ -1,0 +1,46 @@
+.top{
+    background-color: #e5e6e8;
+    @media only screen and (max-width: $bp-large){
+        display: none;
+    }
+    &__contenedor{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &--welcome{
+            font-size: 1.2rem;
+            font-family: $font-open;
+        }
+        &__menu{
+            font-family: $font-raj;
+            font-size: 1.6rem;
+            display: flex;
+            // background-color: peru;
+            align-items: center;
+            &__item{
+                i{
+                    font-size: 1.2rem;
+                }
+                &--link{
+                    color: black;
+                    font-weight: 600;
+                    padding: .5rem 1rem;
+                    // background-color: red;
+                }
+                &__select{
+                    font-size: 1.7rem;
+                    border: none;
+                    outline: 0;
+                    background-color: #e5e6e8;
+                    font-family: $font-raj;
+                    font-weight: 600;
+                    margin: 0 1rem;
+                    option{
+                        font-size: 1.7rem;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+}
