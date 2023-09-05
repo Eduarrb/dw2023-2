@@ -134,7 +134,10 @@ $bg-base: (
 .form-group{
     input[type=text],
     input[type=email],
-    input[type=password]{
+    input[type=password],
+    input[type=number],
+    select,
+    textarea {
         width: 100%;
         font-family: $font-open;
         font-size: 1.4rem;

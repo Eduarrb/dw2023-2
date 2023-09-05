@@ -8,6 +8,7 @@ import session from 'express-session';
 import landingRoutes from './routes/landingRoutes.js';
 import usuariosRoutes from './routes/usuariosRoutes.js';
 import productosRoutes from './routes/productosRoute.js';
+import categoriasRoutes from './routes/categoriasRoute.js';
 
 import expressEjsLayouts from 'express-ejs-layouts';
 
@@ -51,6 +52,7 @@ app.use((req, res, next) => {
 app.use('/', landingRoutes);
 app.use('/auth', usuariosRoutes);
 app.use('/admin', productosRoutes);
+app.use('/admin', categoriasRoutes);
 
 const port = 3000;
 

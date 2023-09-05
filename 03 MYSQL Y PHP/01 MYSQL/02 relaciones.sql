@@ -78,3 +78,20 @@ INSERT INTO directores (dire_nombres, dire_apellidos) VALUES
 ALTER TABLE peliculas ADD COLUMN peli_dire_id INT AFTER peli_id
 
 UPDATE peliculas SET peli_dire_id = 1 WHERE peli_id = 1
+UPDATE peliculas SET peli_dire_id = 2 WHERE peli_id = 2
+UPDATE peliculas SET peli_dire_id = 3 WHERE peli_id = 3
+UPDATE peliculas SET peli_dire_id = 4 WHERE peli_id = 4
+UPDATE peliculas SET peli_dire_id = 5 WHERE peli_id = 5
+UPDATE peliculas SET peli_dire_id = 6 WHERE peli_id = 11
+UPDATE peliculas SET peli_dire_id = 7 WHERE peli_id = 9
+
+-- NOMBRE PELICULA | NOMBRES Y APELLIDOS DEL DIRECTOR | NOMBRES Y APELLIDOS DE LOS ACTOR | PERSONAJE 
+SELECT 
+    a.peli_nombre,
+    CONCAT(d.dire_nombres, ' ', d.dire_apellidos) AS director,
+    CONCAT(c.act_nombres, ' ', c.act_apellidos) AS actor,
+    b.per_nombre
+    FROM peliculas a, personajes b, actores c, directores d
+    WHERE a.peli_id = b.per_peli_id
+        AND b.per_act_id = c.act_id
+        AND a.peli_dire_id = d.dire_id

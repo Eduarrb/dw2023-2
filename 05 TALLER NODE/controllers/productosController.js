@@ -1,6 +1,6 @@
 const formularioProductos = (req, res) => {
-    res.render('productos/ver', {
-        tituloPagina: 'Kompi - Login',
+    res.render('admin/productos/ver', {
+        tituloPagina: 'Kompi - Productos',
         csrfToken: req.csrfToken(),
     });
 }
