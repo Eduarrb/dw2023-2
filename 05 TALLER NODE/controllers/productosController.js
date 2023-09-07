@@ -7,7 +7,6 @@ const mostrarProductos = (req, res) => {
     });
 }
 
-
 const formularioProductos = async (req, res) => {
     const categorias = await Categorias.findAll();
 
@@ -43,6 +42,7 @@ const guardarProducto = async (req, res) => {
             producto: req.body
         });
     }
+    
     const { categoria: categoriaId, nombre, descripcion, precio, cantidad } = req.body;
     try {
         await Productos.create({

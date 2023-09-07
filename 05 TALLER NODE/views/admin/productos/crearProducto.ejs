@@ -32,13 +32,13 @@
                 </div>
             </div>
             <div class="form-group mb-2">
-                <textarea 
+                <input 
+                    type="hidden" 
                     name="descripcion" 
-                    cols="30" 
-                    rows="5" 
-                    placeholder="Descripción"
+                    id="x" 
                     value="<%- producto.descripcion ? producto.descripcion : '' %>"
-                ></textarea>
+                >
+                <trix-editor input="x"></trix-editor>
                 <div class="admin__data__form--error">
                     <%- errores ? errores.descripcion : '' %>
                 </div>
@@ -77,3 +77,4 @@
         </form>
     </div>
 </section>
+<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>

@@ -9,7 +9,15 @@ $bg-base: (
     background-position: center,
     background-size: cover,
 );
-
+trix-toolbar{
+    font-size: 1.4rem;
+}
+trix-editor{
+    font-family: $font-open;
+    font-size: 1.4rem;
+    padding: 1rem;
+    min-height: 20rem;
+}
 .contenedor{
     max-width: 120rem;
     margin-left: auto;
