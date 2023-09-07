@@ -1233,5 +1233,33 @@ ol {
   color: #e74c3c;
   text-align: right;
 }
+.admin__data__box {
+  width: 80%;
+}
+.admin__data__box__header {
+  display: flex;
+  border-bottom: 0.2rem solid black;
+  padding-bottom: 0.5rem;
+}
+.admin__data__box__header--name {
+  flex-grow: 1;
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  color: #7f8c8d;
+  text-align: center;
+}
+.admin__data__box__body__fila {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.admin__data__box__body__fila--name {
+  flex-grow: 1;
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+}
 
 /*# sourceMappingURL=estilos.css.map */

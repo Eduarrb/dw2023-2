@@ -1,5 +1,5 @@
 import express from 'express';
-import { formularioProductos } from '../controllers/productosController.js'
+import { formularioProductos, mostrarProductos, guardarProducto } from '../controllers/productosController.js'
 import {protegerRuta, validarAdmin} from '../middlewares/protegerRuta.js';
 
 const router = express.Router();
@@ -8,7 +8,20 @@ router.get(
     '/productos',
     protegerRuta,
     validarAdmin,
-    formularioProductos
+    mostrarProductos
 );
+
+router.get(
+    '/productos/crear',
+    protegerRuta,
+    validarAdmin,formularioProductos
+);
+
+router.post(
+    '/productos/crear',
+    protegerRuta,
+    validarAdmin,
+    guardarProducto
+)
 
 export default router;
