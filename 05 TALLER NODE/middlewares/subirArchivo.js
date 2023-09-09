@@ -1,15 +1,14 @@
 import multer from 'multer';
 import shortid from 'shortid';
-import path from 'path';
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
-        cb(null, '/public/uploads/productos');
+        cb(null, 'public/uploads/productos/');
     },
     filename: function(req, file, cb){
-        cb(null, file.originalname);
+        const extension = file.originalname.split('.')[1];
+        cb(null, `${shortid.generate()}.${extension}`);
     }
-
 });
 
 const upload = multer({storage}).single('imagen');

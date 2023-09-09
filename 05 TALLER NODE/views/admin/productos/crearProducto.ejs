@@ -3,7 +3,7 @@
     <div class="admin__data">
         <h1 class="titulo-n2 text-center mb-5">Formulario Productos</h1>
         <p class="mensaje"></p>
-        <form class="admin__data__form mt-4" method="post">
+        <form action="/admin/productos/crear?_csrf=<%- csrfToken %>" class="admin__data__form mt-4" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_csrf" value=<%- csrfToken %>>
             <div class="form-group mb-2">
                 <select name="categoria">
