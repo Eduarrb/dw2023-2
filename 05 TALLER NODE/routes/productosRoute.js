@@ -1,7 +1,7 @@
 import express from 'express';
 import { formularioProductos, mostrarProductos, guardarProducto } from '../controllers/productosController.js'
 import {protegerRuta, validarAdmin} from '../middlewares/protegerRuta.js';
-import subirImagen from '../middlewares/subirArchivo.js';
+import subirImagen from '../middlewares/subirArchivo.js'
 
 const router = express.Router();
 

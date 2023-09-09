@@ -44,15 +44,20 @@ const guardarProducto = async (req, res) => {
     }
     
     const { categoria: categoriaId, nombre, descripcion, precio, cantidad } = req.body;
+
+    const imagen = req.file.filename;
+    // console.log(imagen);
+
     try {
         await Productos.create({
             categoriaId,
             nombre,
             descripcion,
             precio,
+            imagen,
             cantidad
         });
-        req.flash('mensaje', ['Hemos creadp el producto correctamente']);
+        req.flash('mensaje', ['Hemos creado el producto correctamente']);
         res.redirect('/admin/productos')
     } catch (error) {
         console.log(error);
