@@ -42,7 +42,7 @@ const guardarProducto = async (req, res) => {
             producto: req.body
         });
     }
-    
+    // console.log(req.file.filename);
     const { categoria: categoriaId, nombre, descripcion, precio, cantidad } = req.body;
 
     const imagen = req.file.filename;
