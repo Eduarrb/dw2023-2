@@ -5,58 +5,62 @@
         <a href="/admin/productos/crear" class="btn btnBG-naranja color-blanco mb-5">Crear Producto</a>
         <p class="mensaje"></p>
         <div class="admin__data__box">
+            <%- //JSON.stringify(productos, undefined, 2) %>
+
             <div class="admin__data__box__header">
-                <div class="admin__data__box__header--name">
+                <div class="admin__data__box__header--name data-id">
                     ID
                 </div>
-                <div class="admin__data__box__header--name">
+                <div class="admin__data__box__header--name data-nombre">
                     NOMBRE
                 </div>
-                <div class="admin__data__box__header--name">
+                <div class="admin__data__box__header--name data-desc">
                     DESCRIPCIÓN
                 </div>
-                <div class="admin__data__box__header--name">
+                <div class="admin__data__box__header--name data-img">
                     IMAGEN
                 </div>
-                <div class="admin__data__box__header--name">
+                <div class="admin__data__box__header--name data-precio">
                     PRECIO
+                </div>
+                <div class="admin__data__box__header--name data-canti">
+                    CANTIDAD
+                </div>
+                <div class="admin__data__box__header--name data-ac">
+                    ACCIONES
                 </div>
             </div>
             <div class="admin__data__box__body">
-                <div class="admin__data__box__body__fila">
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                </div>
-                <div class="admin__data__box__body__fila">
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                    <div class="admin__data__box__body__fila--name">
-                        45645
-                    </div>
-                </div>
+                <% if(productos.length){ %>
+                    <% productos.forEach(producto =>{ %>
+                        <div class="admin__data__box__body__fila">
+                            <div class="admin__data__box__body__fila--name data-id">
+                                <%- producto.id %>
+                            </div>
+                            <div class="admin__data__box__body__fila--name data-nombre">
+                                <%- producto.nombre %>
+                            </div>
+                            <div class="admin__data__box__body__fila--name data-desc">
+                                <%- producto.descripcion %>
+                            </div>
+                            <div class="admin__data__box__body__fila--name data-img">
+                                <img src="/uploads/productos/<%- producto.imagen %>" alt="">
+                            </div>
+                            <div class="admin__data__box__body__fila--name data-precio">
+                                S/. <%-producto.precio %>
+                            </div>
+                            <div class="admin__data__box__body__fila--name data-canti">
+                                <%-producto.cantidad %>
+                            </div>
+                            <div class="admin__data__box__body__fila--name data-ac">
+                                <a href="#" class="admin__data__box__body__fila--name--editar">editar</a>
+                                <a href="#" class="admin__data__box__body__fila--name--borrar ml-1">borrar</a>
+                            </div>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No tienes ningun producto en el sistema</p>
+                <% } %>
             </div>
         </div>
     </div>

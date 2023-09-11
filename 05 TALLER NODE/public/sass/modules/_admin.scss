@@ -30,7 +30,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        
+        padding: 5rem 0;
         &__form {
             width: 80%;
             &--error {
@@ -42,12 +42,40 @@
         }
         &__box{
             width: 80%;
+            overflow-y: scroll;
+            .data{
+                &-id{
+                    width: 15%;
+                }
+                &-nombre{
+                    width: 15%;
+                }
+                &-desc{
+                    width: 20%;
+                }
+                &-img{
+                    width: 10%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                &-precio{
+                    width: 10%;
+                }
+                &-canti{
+                    width: 10%;
+                }
+                &-ac{
+                    width: 20%;
+                }
+            }
             &__header{
                 display: flex;
                 border-bottom: .2rem solid black;
                 padding-bottom: .5rem;
+                width: 100%;
                 &--name{
-                    flex-grow: 1;
+                    // flex-grow: 1;
                     font-size: 1.6rem;
                     font-family: $font-raj;
                     font-weight: 700;
@@ -59,13 +87,39 @@
                 &__fila{
                     display: flex;
                     border-bottom: 1px solid rgba(black, .2);
+                    width: 100%;
                     &--name {
-                        flex-grow: 1;
+                        // flex-grow: 1;
                         font-size: 1.6rem;
                         font-family: $font-raj;
                         font-weight: 700;
                         text-align: center;
                         padding: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &--editar{
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            background-color: #f1c40f;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #f39c12;
+                            }
+                        }
+                        &--borrar{
+                            background-color: #e74c3c;
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #c0392b;
+                            }
+                        }
                     }
                 }
             }

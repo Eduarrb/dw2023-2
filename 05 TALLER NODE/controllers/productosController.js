@@ -1,9 +1,16 @@
 import { Productos, Categorias } from '../models/index.js';
 import { body, validationResult } from 'express-validator';
 
-const mostrarProductos = (req, res) => {
+const mostrarProductos = async (req, res) => {
+    const productos = await Productos.findAll({
+        include: [
+            { model: Categorias, as: 'categoria' }
+        ]
+    });
+    // console.log(productos);
     res.render('admin/productos/verProductos.ejs', {
         tituloPagina: 'Kompi - Productos',
+        productos
     });
 }
 
