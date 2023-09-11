@@ -33,6 +33,7 @@
         padding: 5rem 0;
         &__form {
             width: 80%;
+            overflow-y: scroll;
             &--error {
                 font-size: 1.4rem;
                 font-family: $font-open;

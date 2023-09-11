@@ -1,0 +1,85 @@
+<section class="admin">
+    <%- include('../menu.ejs') %>
+    <div class="admin__data">
+        <h1 class="titulo-n2 text-center mb-5">Formulario Productos</h1>
+        <% if(locals.mensajes.error){ %>
+            <p class="error"><%- locals.mensajes.error %></p>
+        <% } %>
+        <form action="/admin/productos/editar/<%- producto.id %>?_csrf=<%- csrfToken %>" class="admin__data__form mt-4" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_csrf" value=<%- csrfToken %>>
+            <div class="form-group mb-2">
+                <select name="categoria">
+                    <option value="" selected disabled>- Seleccione una Categoria -</option>
+                    <% categorias.forEach(categoria => { %>
+                        <option 
+                            value="<%- categoria.id %>" 
+                            <%- producto.categoriaId ? producto.categoriaId == categoria.id ? 'selected' : null : null %>>
+                                <%- categoria.nombre %>
+                        </option>
+                    <% }) %>
+                </select>
+                <div class="admin__data__form--error">
+                    <%- errores ? errores.categoria : '' %>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <input 
+                    type="text" 
+                    placeholder="Nombre" 
+                    name="nombre" 
+                    value="<%- producto.nombre ? producto.nombre : '' %>"
+                >
+                <div class="admin__data__form--error">
+                    <%- errores ? errores.nombre : '' %>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <input 
+                    type="hidden" 
+                    name="descripcion" 
+                    id="x" 
+                    value="<%- producto.descripcion ? producto.descripcion : '' %>"
+                >
+                <trix-editor input="x"></trix-editor>
+                <div class="admin__data__form--error">
+                    <%- errores ? errores.descripcion : '' %>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <input 
+                    type="text" 
+                    placeholder="Precio" 
+                    name="precio" 
+                    value="<%- producto.precio ? producto.precio : '' %>"
+                >
+                <div class="admin__data__form--error">
+                    <%- errores ? errores.precio : '' %>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <input 
+                    type="text" 
+                    placeholder="Cantidad" 
+                    name="cantidad" 
+                    value="<%- producto.cantidad ? producto.cantidad : '' %>"
+                >
+                <div class="admin__data__form--error">
+                    <%- errores ? errores.cantidad : '' %>
+                </div>
+            </div>
+            <div class="form-group mb-2">
+                <div class="admin__data__form__imgBox">
+                    <img src="/uploads/productos/<%- producto.imagen %>" alt="">
+                </div>
+                <input type="file" name="imagen">
+                <div class="admin__data__form--error">
+                    
+                </div>
+            </div>
+            <div class="form-group mt-5">
+                <input type="submit" value="Guardar" class="btnFullWidth color-blanco">
+            </div>
+        </form>
+    </div>
+</section>
+<script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>

@@ -1238,6 +1238,7 @@ trix-editor {
 }
 .admin__data__form {
   width: 80%;
+  overflow-y: scroll;
 }
 .admin__data__form--error {
   font-size: 1.4rem;

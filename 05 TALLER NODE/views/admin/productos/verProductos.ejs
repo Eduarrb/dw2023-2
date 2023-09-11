@@ -53,8 +53,8 @@
                                 <%-producto.cantidad %>
                             </div>
                             <div class="admin__data__box__body__fila--name data-ac">
-                                <a href="#" class="admin__data__box__body__fila--name--editar">editar</a>
-                                <a href="#" class="admin__data__box__body__fila--name--borrar ml-1">borrar</a>
+                                <a href="/admin/productos/editar/<%- producto.id %>" class="admin__data__box__body__fila--name--editar">editar</a>
+                                <a href="/admin/productos/borrar/<%- producto.id %>" class="admin__data__box__body__fila--name--borrar ml-1">borrar</a>
                             </div>
                         </div>
                     <% }) %>

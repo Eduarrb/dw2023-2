@@ -71,8 +71,73 @@ const guardarProducto = async (req, res) => {
     }
 }
 
+const formEditarProducto = async (req, res) => {
+    const producto = await Productos.findByPk(req.params.id);
+    if(!producto) res.redirect('/admin/productos');
+    
+    const categorias = await Categorias.findAll();
+    res.render('admin/productos/verProducto', {
+        tituloPagina: 'Kompi - Editar Producto',
+        csrfToken: req.csrfToken(),
+        categorias,
+        errores: '',
+        producto
+    })
+}
+
+const editarProducto = async (req, res) => {
+    const categorias = await Categorias.findAll();
+    const producto = await Productos.findByPk(req.params.id);
+
+    await body('categoria').isNumeric().withMessage('Seleccione una categoria').run(req);
+    await body('nombre').notEmpty().withMessage('El campo nombre no debe estar vacio').run(req);
+    await body('descripcion').notEmpty().withMessage('La descripcion es obligatoria').isLength({max: 140}).withMessage('la descripcion solo puede tener 140 caracteres').run(req);
+    await body('precio').isNumeric().withMessage('Debe ingresar un precio').run(req);
+    await body('cantidad').isNumeric().withMessage('Debe ingresar una cantidad').run(req);
+    
+    let resultado = validationResult(req);
+    if (!resultado.isEmpty()) {
+        let errores = resultado
+            .array()
+            .reduce((obj, item) => ((obj[item.path] = item.msg), obj), {});
+        return res.render(`admin/productos/verProducto`, {
+            tituloPagina: 'Kompi - Ediatr Producto',
+            errores,
+            categorias,
+            csrfToken: req.csrfToken(),
+            producto
+        });
+    }
+    // console.log(req.file.filename);
+    const { categoria: categoriaId, nombre, descripcion, precio, cantidad } = req.body;
+    let imagen = '';
+    if(req.file){
+        imagen = req.file.filename;
+    } else {
+        imagen = producto.imagen;
+    }
+
+    try {
+        producto.nombre = nombre;
+        producto.categoriaId = categoriaId;
+        producto.descripcion = descripcion;
+        producto.precio = precio;
+        producto.cantidad = cantidad;
+        producto.imagen = imagen;
+
+        await producto.save();
+        req.flash('mensaje', ['Hemos editado el producto correctamente']);
+        res.redirect('/admin/productos')
+    } catch (error) {
+        console.log(error);
+    }
+    
+}
+
 export {
     mostrarProductos,
     formularioProductos,
-    guardarProducto
+    guardarProducto,
+    formEditarProducto,
+    editarProducto
 }
