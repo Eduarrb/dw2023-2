@@ -1,4 +1,5 @@
 <?php 
+    ob_start();
     include "conexion.php";
 ?>
 <!DOCTYPE html>
@@ -71,6 +72,7 @@
                     
                     $query = "INSERT INTO peliculas (peli_nombre, peli_genero, peli_fechaEstreno, peli_restricciones, peli_img, peli_dire_id) VALUES ('{$peli_nombre}', '{$peli_genero}', '{$peli_fechaEstreno}', '{$peli_restricciones}', '{$peli_img}', {$peli_dire_id})";
                     mysqli_query($conexion, $query);
+                    header("Location: crear.php");
                 }
             ?>
         </div>

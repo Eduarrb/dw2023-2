@@ -15,7 +15,7 @@
     <section class="container">
         <div class="row p-4">
             <a href="crear.php" class="btn btn-success">Subir Peliculas</a>
-            <a href="#" class="btn btn-info ml-2">Directores</a>
+            <a href="directores" class="btn btn-info ml-2">Directores</a>
         </div>
         <div class="row">
             <!-- 
@@ -38,13 +38,14 @@
 
             <?php
                 // $query = "SELECT * FROM peliculas";
-                $query = "SELECT 
+                $query = "SELECT
+                    a.peli_id, 
                     a.peli_nombre,
                     a.peli_img,
                     CONCAT(b.dire_nombres, ' ', b.dire_apellidos) AS director,
                     a.peli_restricciones
                         FROM peliculas a
-                            INNER JOIN directores b ON a.peli_dire_id = dire_id";
+                            LEFT JOIN directores b ON a.peli_dire_id = dire_id";
                 $res_query = mysqli_query($conexion, $query);
                 // echo $res_query;
                 // print_r($res_query);
@@ -73,8 +74,8 @@
                                 <strong>Rating: </strong> <?php echo $fila['peli_restricciones']; ?>
                             </div>
                             <div>
-                                <a href="#" class="btn btn-success">editar</a>
-                                <a href="#" class="btn btn-danger">borrar</a>
+                                <a href="editar.php?id=<?php echo $fila['peli_id']; ?>" class="btn btn-success">editar</a>
+                                <a href="borrar.php?id=<?php echo $fila['peli_id']; ?>" class="btn btn-danger">borrar</a>
                             </div>
                         </div>
                 <?php }
