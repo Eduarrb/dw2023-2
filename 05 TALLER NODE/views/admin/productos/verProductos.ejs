@@ -3,7 +3,11 @@
     <div class="admin__data">
         <h1 class="titulo-n2 text-center mb-5">Todos Los productos</h1>
         <a href="/admin/productos/crear" class="btn btnBG-naranja color-blanco mb-5">Crear Producto</a>
-        <p class="mensaje"></p>
+        <% if(locals.mensajes){ %>
+            <p class="mensaje mb-3">
+                <%- locals.mensajes.mensaje %>
+            </p>
+        <% } %>
         <div class="admin__data__box">
             <%- //JSON.stringify(productos, undefined, 2) %>
 
