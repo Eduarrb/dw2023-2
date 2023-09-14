@@ -15,7 +15,9 @@
     defined("DB_NAME") ? null : define("DB_NAME", "kompi");
 
     $conexion = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    if($conexion){
-        echo 'conexion exitosa';
-    }
+    // if($conexion){
+    //     echo 'conexion exitosa';
+    // }
+    // include 'controllers/usuariosController.php';
+    require_once("caller.php");
 ?>
