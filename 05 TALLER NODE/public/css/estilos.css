@@ -54,6 +54,10 @@ trix-editor {
   min-height: 20rem;
 }
 
+.swal2-container, .swal2-popup {
+  font-size: 1.6rem !important;
+}
+
 .contenedor {
   max-width: 120rem;
   margin-left: auto;
@@ -1319,6 +1323,8 @@ trix-editor {
   padding: 1rem 2rem;
   border-radius: 0.5rem;
   transition: all 0.3s;
+  outline: 0;
+  border: none;
 }
 .admin__data__box__body__fila--name--borrar:hover {
   transition: all 0.3s;

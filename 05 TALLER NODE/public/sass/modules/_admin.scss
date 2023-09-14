@@ -116,6 +116,8 @@
                             padding: 1rem 2rem;
                             border-radius: .5rem;
                             transition: all .3s;
+                            outline: 0;
+                            border: none;
                             &:hover{
                                 transition: all .3s;
                                 background-color: #c0392b;

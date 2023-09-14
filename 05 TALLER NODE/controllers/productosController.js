@@ -3,15 +3,12 @@ import { body, validationResult } from 'express-validator';
 import fs from 'fs';
 
 const mostrarProductos = async (req, res) => {
-    const productos = await Productos.findAll({
-        include: [
-            { model: Categorias, as: 'categoria' }
-        ]
-    });
+    const productos = await Productos.findAll({});
     // console.log(productos);
     res.render('admin/productos/verProductos.ejs', {
         tituloPagina: 'Kompi - Productos',
-        productos
+        csrfToken: req.csrfToken(),
+        productos,
     });
 }
 
@@ -142,10 +139,15 @@ const editarProducto = async (req, res) => {
     
 }
 
+const eliminarProducto = async (req, res) => {
+    res.send('se elimino el producto');
+}
+
 export {
     mostrarProductos,
     formularioProductos,
     guardarProducto,
     formEditarProducto,
-    editarProducto
+    editarProducto,
+    eliminarProducto
 }

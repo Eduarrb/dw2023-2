@@ -58,7 +58,11 @@
                             </div>
                             <div class="admin__data__box__body__fila--name data-ac">
                                 <a href="/admin/productos/editar/<%- producto.id %>" class="admin__data__box__body__fila--name--editar">editar</a>
-                                <a href="/admin/productos/borrar/<%- producto.id %>" class="admin__data__box__body__fila--name--borrar ml-1">borrar</a>
+                                <form action="/admin/productos/delete?_csrf=<%- csrfToken %>" method="post" class="eliminarProducto">
+                                    <input type="hidden" value=<%- producto.id %>>
+                                    <input type="hidden" name="_csrf" value=<%- csrfToken %>>
+                                    <input type="submit" value="borrar" class="admin__data__box__body__fila--name--borrar ml-1">
+                                </form>
                             </div>
                         </div>
                     <% }) %>
@@ -69,3 +73,4 @@
         </div>
     </div>
 </section>
+<script src="../js/bundle.js"></script>

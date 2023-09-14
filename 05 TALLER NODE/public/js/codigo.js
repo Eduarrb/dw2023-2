@@ -1,0 +1,1 @@
+import eliminarProducto from './eliminarProducto.js';
