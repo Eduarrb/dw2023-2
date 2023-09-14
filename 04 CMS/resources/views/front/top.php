@@ -18,11 +18,11 @@
             </div>
             <div class="top__contenedor__menu__item">
                 <i class="fa-solid fa-user"></i>
-                <a href="login.html" class="top__contenedor__menu__item--link">
+                <a href="login.php" class="top__contenedor__menu__item--link">
                     Sing In                        
                 </a>
                 <span>/</span>
-                <a href="" class="top__contenedor__menu__item--link"> 
+                <a href="register.php" class="top__contenedor__menu__item--link"> 
                     Register
                 </a>
             </div>

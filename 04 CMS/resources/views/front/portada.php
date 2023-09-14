@@ -1,0 +1,53 @@
+    <section class="portada">
+        <div class="portada__top">
+            <div class="portada__top__degradado">
+                <div class="portada__top__degradado__contenedor contenedor">
+                    <div class="portada__top__degradado__contenedor__bienvenida">
+                        <h2 class="titulo-n1 color-blanco">
+                            have it all
+                        </h2>
+                        <h3 class="titulo-n2 color-blanco">
+                            Powerfull, Compact, Versatile
+                        </h3>
+                        <p class="descri color-blanco mt-1 mb-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae <br>delectus tempora aperiam, explicabo sed repellendus neque necessitatibus!
+                        </p>
+                        <a href="#" class="btn color-blanco btnBG-naranja">
+                            Buy Now 
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </div>
+                    <div class="portada__top__degradado__contenedor__ofertas">
+                        <article class="portada__top__degradado__contenedor__ofertas__item">
+                            <h4 class="titulo-n3 color-blanco">
+                                Special Price
+                            </h4>
+                            <p class="descri color-blanco">
+                                Lorem ipsum dolor sit.
+                            </p>
+                            <a href="#" class="btnNoBorder color-primario mt-2">Buy Now <i class="fa-solid fa-angle-right"></i></a>
+                        </article>
+                        <article class="portada__top__degradado__contenedor__ofertas__item">
+                            <h4 class="titulo-n3 color-blanco">
+                                Special Price
+                            </h4>
+                            <p class="descri color-blanco">
+                                Lorem ipsum dolor sit.
+                            </p>
+                            <a href="#" class="btnNoBorder color-primario mt-2">Buy Now <i class="fa-solid fa-angle-right"></i></a>
+                        </article>
+                        <article class="portada__top__degradado__contenedor__ofertas__item">
+                            <h4 class="titulo-n3 color-blanco">
+                                Special Price
+                            </h4>
+                            <p class="descri color-blanco">
+                                Lorem ipsum dolor sit.
+                            </p>
+                            <a href="#" class="btnNoBorder color-primario mt-2">Buy Now <i class="fa-solid fa-angle-right"></i></a>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="portada__bottom"></div>
+    </section>
