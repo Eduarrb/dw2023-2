@@ -1,5 +1,6 @@
 import { Productos, Categorias } from '../models/index.js';
 import { body, validationResult } from 'express-validator';
+import fs from 'fs';
 
 const mostrarProductos = async (req, res) => {
     const productos = await Productos.findAll({
@@ -113,6 +114,13 @@ const editarProducto = async (req, res) => {
     let imagen = '';
     if(req.file){
         imagen = req.file.filename;
+        fs.unlink(`public/uploads/productos/${producto.imagen}`, err => {
+            if(err){
+                console.log('El archvio no se pudo eliminar');
+            } else {
+                console.log('se borro el archivo');
+            }
+        })
     } else {
         imagen = producto.imagen;
     }
