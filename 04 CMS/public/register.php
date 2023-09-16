@@ -6,12 +6,14 @@
             <h1 class="titulo-n2 text-center mb-5">Costumer Register</h1>
             <p class="descri text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget ultricies nibh mattis tortor egestas dis at ipsum.</p>
             <?php validar_user_registro(); ?>
+            <!-- <p class="error">Este es un error</p> -->
+            <?php echo $_SESSION['nombre']; ?>
             <form class="auth__data__form mt-4" method="post">
                 <div class="form-group mb-2">
-                    <input type="text" placeholder="Name" name="user_names">
+                    <input type="text" placeholder="Name" name="user_names" required>
                 </div>
                 <div class="form-group mb-2">
-                    <input type="text" placeholder="Email" name="user_email">
+                    <input type="email" placeholder="Email" name="user_email" required>
                 </div>
                 <div class="form-group mb-2">
                     <input type="password" placeholder="Password" name="user_pass">

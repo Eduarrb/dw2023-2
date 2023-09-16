@@ -7,6 +7,10 @@
 
     <main class="main">
         <div class="main__contenedor contenedor">
+            <?php
+                $_SESSION['nombre'] = "Eduardo";
+                echo $_SESSION['nombre'];
+            ?>
             <?php include VIEW_FRONT . DS . "novedades.php"; ?>
             <?php include VIEW_FRONT . DS . "productos.php"; ?>
         </div>
