@@ -33,10 +33,20 @@ function eliminarProducto(e) {
             const datos = {
                 productoId
             }
-            axios.post(this.action, datos).then(res => {
-                console.log(res);
-            })
-            Swal.fire('Eliminado!', 'Tu producto ha sido eliminado.', 'success');
+            axios
+                .post(this.action, datos)
+                .then(res => {
+                   Swal.fire('Eliminado!', res.data, 'success');
+                   this.parentElement.parentElement.remove();
+                })
+                .catch(error => {
+                    console.log(error);
+                    if(error.response.status == 404){
+                        Swal.fire('Error', error.response.data, 'error')
+                    }
+                })
         }
-    });
+    }).catch(err => {
+        console.log(err);
+    })
 }

@@ -139,8 +139,21 @@ const editarProducto = async (req, res) => {
     
 }
 
-const eliminarProducto = async (req, res) => {
-    res.send('se elimino el producto');
+const eliminarProducto = async (req, res, next) => {
+    const { productoId } = req.body;
+    const producto = await Productos.findOne({
+        where: { id: productoId }
+    });
+    if(!producto){
+        res.status(404).send('Accion no válida');
+        return next();
+    } else {
+        await Productos.destroy({
+            where: { id: productoId}
+        });
+        res.status(200).send('Eliminado correctamente');
+        return next();
+    }
 }
 
 export {

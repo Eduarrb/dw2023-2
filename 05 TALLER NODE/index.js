@@ -17,6 +17,7 @@ import db from './config/db.js';
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(cookieParser());
 app.use(
