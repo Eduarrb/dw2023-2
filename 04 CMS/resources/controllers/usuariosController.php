@@ -30,8 +30,7 @@
                 }
             } else {
                 if(post_registro($user_names, $user_email, $user_pass)){
-                    // header("Location: register.php");
-                    echo display_msj("Registro satisfactorio", "mensaje");
+                    set_mensaje(display_msj("Usuario registrado satisfactoriamente, Por favor revisa tu bandeja de correo o spam para activar tu cuenta. Esto puede tardar unos minutos", "mensaje"));
                     redirect("register.php");
                 }
                 else {
@@ -42,7 +41,31 @@
     }
 
     function post_registro($names, $email, $pass){
-        $query = query("INSERT INTO usuarios (user_names, user_email, user_pass) VALUES ('{$names}', '{$email}', '{$pass}')");
+        $user_token = md5($email);
+        $user_pass = password_hash($pass, PASSWORD_BCRYPT, array('cost' => 12));
+        $query = query("INSERT INTO usuarios (user_names, user_email, user_pass, user_token) VALUES ('{$names}', '{$email}', '{$user_pass}', '{$user_token}')");
+        $mensaje = "Por favor activa tu cuenta mediante este <a href='http://localhost/dw2023-2/04%20CMS/public/activate.php?email={$email}&token={$user_token}' target='_blank'>LINK</a>";
+        send_email($email, 'Activar Cuenta', $mensaje);
         return true;
+    }
+
+    function postActivarUsuario(){
+        if(isset($_GET['email']) && isset($_GET['token'])){
+            $user_email = clean_string(trim($_GET['email']));
+            $user_token = clean_string(trim($_GET['token']));
+
+            $query = query("SELECT user_id FROM usuarios WHERE user_email = '{$user_email}' AND user_token = '{$user_token}'");
+            $fila = fetch_assoc($query);
+            $user_id = $fila['user_id'];
+            if(mysqli_num_rows($query) == 1){
+                set_mensaje(display_msj("Su cuenta ha sido activada, por favor inicie sesión", "mensaje"));
+                redirect("register.php");
+            } else {
+                set_mensaje(display_msj("Los datos no son validos, por favor intente otra vez", "error"));
+                redirect("register.php");
+            }
+        } else {
+
+        }
     }
 ?>
