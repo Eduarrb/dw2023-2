@@ -96,6 +96,10 @@ const autenticar = async (req, res) => {
     }).redirect('/');
 };
 
+const cerrarSesion = (req, res) => {
+    res.clearCookie('_token').redirect('/');
+}
+
 const formularioRegistro = (req, res) => {
     res.render('auth/register', {
         tituloPagina: 'Kompi - Register',
@@ -335,6 +339,7 @@ const nuevoPassword = async (req, res) => {
 export {
     formularioLogin,
     autenticar,
+    cerrarSesion,
     formularioRegistro,
     formularioOlvidePass,
     registrar,

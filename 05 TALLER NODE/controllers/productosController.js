@@ -151,6 +151,13 @@ const eliminarProducto = async (req, res, next) => {
         await Productos.destroy({
             where: { id: productoId}
         });
+        fs.unlink(`public/uploads/productos/${producto.imagen}`, err => {
+            if(err){
+                console.log('El archvio no se pudo eliminar');
+            } else {
+                console.log('se borro el archivo');
+            }
+        })
         res.status(200).send('Eliminado correctamente');
         return next();
     }
