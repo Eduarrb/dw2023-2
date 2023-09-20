@@ -31,7 +31,24 @@ const validarAdmin = (req, res, next) => {
     next();
 }
 
+const activeSession = async (req, res, next) => {
+    const { _token } = req.cookies;
+    if(!_token){
+        return next();
+    } else {
+        try {
+            const decoded = jwt.verify(_token, process.env.JWT_SECRET);
+            const usuario = await Usuarios.scope('eliminarPassword').findByPk(decoded.id);
+            req.usuario = usuario;
+        } catch (error) {
+            console.log(error);
+        }
+        return next();
+    }
+}
+
 export {
     protegerRuta,
-    validarAdmin
+    validarAdmin,
+    activeSession
 };

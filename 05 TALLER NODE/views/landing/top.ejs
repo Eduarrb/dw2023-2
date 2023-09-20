@@ -16,7 +16,7 @@
                 </select>
                 <!-- <i class="fa-solid fa-angle-down"></i> -->
             </div>
-            <% if(usuario.id){ %>
+            <% if(usuario){ %>
                 <%- include('topPartials/cerrar-sesion.ejs') %>
             <% } else { %>
                 <%- include('topPartials/autenticar.ejs') %>
