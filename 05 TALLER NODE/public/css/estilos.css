@@ -1398,6 +1398,7 @@ trix-editor {
   border-radius: 0.5rem;
   transition: all 0.3s;
   background-color: #f1c40f;
+  border: none;
 }
 .main__contenedor__table__body__fila--name--restar:hover {
   transition: all 0.3s;
@@ -1409,6 +1410,7 @@ trix-editor {
   border-radius: 0.5rem;
   transition: all 0.3s;
   background-color: #1abc9c;
+  border: none;
 }
 .main__contenedor__table__body__fila--name--sumar:hover {
   transition: all 0.3s;
@@ -1426,6 +1428,41 @@ trix-editor {
 .main__contenedor__table__body__fila--name--delete:hover {
   transition: all 0.3s;
   background-color: #c0392b;
+}
+.main__contenedor__table__totalBox {
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: 0.2rem solid black;
+}
+.main__contenedor__table__totalBox--total {
+  width: 80%;
+  font-size: 2.2rem;
+  text-align: center;
+  font-weight: 700;
+  padding: 1.5rem 0;
+}
+.main__contenedor__table__totalBox--pagar {
+  width: 20%;
+  font-size: 2.2rem;
+  text-align: left;
+  padding: 1.5rem 0;
+}
+.main__contenedor__table__checkout {
+  text-align: right;
+  margin-top: 1rem;
+}
+.main__contenedor__table__checkout input[type=submit] {
+  border: none;
+  font-family: "Rajdhani", sans-serif;
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #e67e22;
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=estilos.css.map */

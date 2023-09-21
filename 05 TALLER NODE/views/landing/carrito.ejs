@@ -50,21 +50,24 @@
                                 <%- prod.cantidad * prod.producto.precio %>
                             </div>
                             <div class="main__contenedor__table__body__fila--name data-ac">
-                                <a
-                                    href="#"
-                                    class="main__contenedor__table__body__fila--name--restar"
-                                    ><i class="fa-solid fa-minus"></i></a
-                                >
-                                <a
-                                    href="#"
-                                    class="main__contenedor__table__body__fila--name--sumar ml-1"
-                                    ><i class="fa-solid fa-plus"></i></a
-                                >
-                                <a
-                                    href="#"
-                                    class="main__contenedor__table__body__fila--name--delete ml-1"
-                                    ><i class="fa-solid fa-trash-can"></i></a
-                                >
+                                <form action="/cart/restar/<%- prod.productoId %>" method="post">
+                                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                                    <button type="submit" class="main__contenedor__table__body__fila--name--restar">
+                                        <i class="fa-solid fa-minus"></i>   
+                                    </button>    
+                                </form>
+                                <form action="/cart/sumar/<%- prod.productoId %>" method="post">
+                                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                                    <button type="submit" class="main__contenedor__table__body__fila--name--sumar ml-1">
+                                        <i class="fa-solid fa-plus"></i>   
+                                    </button>    
+                                </form>
+                                <form action="/cart/delete/<%- prod.productoId %>" method="post">
+                                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
+                                    <button type="submit" class="main__contenedor__table__body__fila--name--delete ml-1">
+                                        <i class="fa-solid fa-trash-can"></i> 
+                                    </button>    
+                                </form>
                             </div>
                         </div>
                     <% }) %>
@@ -72,6 +75,13 @@
                     <p>No tiene productos seleccionados</p>
                 <% } %>
             </div>
+            <div class="main__contenedor__table__totalBox">
+                <span class="main__contenedor__table__totalBox--total">Total</span>
+                <span class="main__contenedor__table__totalBox--pagar">S/. <%- total %></span>
+            </div>
+            <form action="#" class="main__contenedor__table__checkout">
+                <input type="submit" value="Checkout">
+            </form>
         </div>
     </div>
 </main>

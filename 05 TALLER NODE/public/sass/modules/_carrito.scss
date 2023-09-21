@@ -1,7 +1,6 @@
 .main{
     margin-top: 14.2rem;
     &__contenedor{
-
         &__table{
             .data{
                 &-id{
@@ -64,6 +63,7 @@
                             border-radius: .5rem;
                             transition: all .3s;
                             background-color: #f1c40f;
+                            border: none;
                             &:hover{
                                 transition: all .3s;
                                 background-color: #f39c12;
@@ -75,6 +75,7 @@
                             border-radius: .5rem;
                             transition: all .3s;
                             background-color: #1abc9c;
+                            border: none;
                             &:hover{
                                 transition: all .3s;
                                 background-color: #16a085;
@@ -94,6 +95,41 @@
                             }
                         }
                     }
+                }
+            }
+            &__totalBox{
+                font-family: $font-open;
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: .2rem solid black;
+                &--total{
+                    width: 80%;
+                    font-size: 2.2rem;
+                    text-align: center;
+                    font-weight: 700;
+                    padding: 1.5rem 0;
+                }
+                &--pagar{
+                    width: 20%;
+                    font-size: 2.2rem;
+                    text-align: left;
+                    padding: 1.5rem 0;
+                }
+            }
+            &__checkout{
+                text-align: right;
+                margin-top: 1rem;
+                input[type=submit]{
+                    border: none;
+                    font-family: $font-raj;
+                    font-size: 2.6rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    background-color: #e67e22;
+                    color: white;
+                    padding: 1rem 3rem;
+                    border-radius: 1rem;
+                    cursor: pointer;
                 }
             }
         }
