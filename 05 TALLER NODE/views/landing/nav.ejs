@@ -46,9 +46,11 @@
                         <a href="#" class="nav__top__contenedor__menuRight__menu__item--link">
                             <i class="fa-solid fa-dollar-sign"></i>0
                         </a>
-                        <a href="#" class="nav__top__contenedor__menuRight__menu__item--link">
+                        <a href="/cart" class="nav__top__contenedor__menuRight__menu__item--link">
                             <i class="fa-solid fa-bag-shopping"></i>
-                            <span>0</span>
+                            <% if(carritoCanti){ %>
+                                <span><%- carritoCanti %></span>
+                            <% } %>
                         </a>
                     </li>
                     <li class="nav__top__contenedor__menuRight__menu__item">

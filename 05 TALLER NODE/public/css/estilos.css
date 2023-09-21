@@ -1337,4 +1337,95 @@ trix-editor {
   background-color: #c0392b;
 }
 
+.main {
+  margin-top: 14.2rem;
+}
+.main__contenedor__table .data-id {
+  width: 15%;
+}
+.main__contenedor__table .data-nombre {
+  width: 15%;
+}
+.main__contenedor__table .data-desc {
+  width: 20%;
+}
+.main__contenedor__table .data-img {
+  width: 10%;
+}
+.main__contenedor__table .data-img img {
+  width: 100%;
+}
+.main__contenedor__table .data-precio {
+  width: 10%;
+}
+.main__contenedor__table .data-canti {
+  width: 10%;
+}
+.main__contenedor__table .data-ac {
+  width: 20%;
+}
+.main__contenedor__table__header {
+  display: flex;
+  border-bottom: 0.2rem solid black;
+  padding-bottom: 0.5rem;
+  width: 100%;
+}
+.main__contenedor__table__header--name {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  color: #7f8c8d;
+  text-align: center;
+}
+.main__contenedor__table__body__fila {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+.main__contenedor__table__body__fila--name {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main__contenedor__table__body__fila--name--restar {
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  background-color: #f1c40f;
+}
+.main__contenedor__table__body__fila--name--restar:hover {
+  transition: all 0.3s;
+  background-color: #f39c12;
+}
+.main__contenedor__table__body__fila--name--sumar {
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  background-color: #1abc9c;
+}
+.main__contenedor__table__body__fila--name--sumar:hover {
+  transition: all 0.3s;
+  background-color: #16a085;
+}
+.main__contenedor__table__body__fila--name--delete {
+  background-color: #e74c3c;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  outline: 0;
+  border: none;
+}
+.main__contenedor__table__body__fila--name--delete:hover {
+  transition: all 0.3s;
+  background-color: #c0392b;
+}
+
 /*# sourceMappingURL=estilos.css.map */

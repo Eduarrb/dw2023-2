@@ -1,19 +1,17 @@
 import { Productos, Cart } from '../models/index.js';
-import activeSession from '../helpers/session.js';
 
 const mostrarProductos = async (req, res) => {
     const productos = await Productos.findAll({});
-    const usuario = await activeSession(req);
     res.render('landing/index.ejs', {
         tituloPagina: 'Kompi',
         productos,
-        usuario,
+        usuario: req.usuario,
+        carritoCanti: req.carritoCanti
     });
 };
 
 const mostrarProducto = async (req, res) => {
     const producto = await Productos.findByPk(req.params.id);
-    const usuario = await activeSession(req);
     if (!producto) {
         return res.redirect('/');
     }
@@ -21,7 +19,8 @@ const mostrarProducto = async (req, res) => {
         tituloPagina: `Kompi - ${producto.nombre}`,
         csrfToken: req.csrfToken(),
         producto,
-        usuario,
+        usuario: req.usuario,
+        carritoCanti: req.carritoCanti
     });
 };
 
@@ -33,7 +32,6 @@ const agregarCarrito = async (req, res) => {
             productoId: req.params.id
         }
     })
-    // console.log(carrito)
     if (!producto) res.redirect('/');
     if(carrito) {
         console.log('Este producto ya lo agregaste a tu carrito');
@@ -61,4 +59,22 @@ const agregarCarrito = async (req, res) => {
     }
 };
 
-export { mostrarProductos, mostrarProducto, agregarCarrito };
+const mostrarCarrito = async (req, res) => {
+    const carrito = await Cart.findAll({
+        where: {
+            usuarioId: req.usuario.id,
+        },
+        include: [
+            { model: Productos, as: 'producto' }
+        ]
+    })
+    res.render('landing/carrito.ejs',{
+        tituloPagina: `Kompi - Carrito`,
+        csrfToken: req.csrfToken(),
+        usuario: req.usuario,
+        carritoCanti: carrito.length,
+        carrito
+    })
+}
+
+export { mostrarProductos, mostrarProducto, agregarCarrito, mostrarCarrito };
