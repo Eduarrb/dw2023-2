@@ -18,13 +18,23 @@
             </div>
             <div class="top__contenedor__menu__item">
                 <i class="fa-solid fa-user"></i>
-                <a href="login.php" class="top__contenedor__menu__item--link">
-                    Sing In                        
-                </a>
-                <span>/</span>
-                <a href="register.php" class="top__contenedor__menu__item--link"> 
-                    Register
-                </a>
+                <?php
+                    if(!isset($_SESSION['user_names'])){
+                        ?>
+                            <a href="login.php" class="top__contenedor__menu__item--link">
+                                Sing In                        
+                            </a>
+                            <span>/</span>
+                            <a href="register.php" class="top__contenedor__menu__item--link"> 
+                                Register
+                            </a>
+                    <?php } else {
+                        ?>
+                            <a href="logout.php" class="top__contenedor__menu__item--link">
+                                Cerrar Sesión                       
+                            </a>
+                    <?php }
+                ?>
             </div>
         </div>
     </div>

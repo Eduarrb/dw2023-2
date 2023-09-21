@@ -57,15 +57,54 @@
             $query = query("SELECT user_id FROM usuarios WHERE user_email = '{$user_email}' AND user_token = '{$user_token}'");
             $fila = fetch_assoc($query);
             $user_id = $fila['user_id'];
-            if(mysqli_num_rows($query) == 1){
+            if(contar_filas($query) == 1){
+                $query = query("UPDATE usuarios SET user_status = 1, user_token = '' WHERE user_id = {$user_id}");
                 set_mensaje(display_msj("Su cuenta ha sido activada, por favor inicie sesión", "mensaje"));
-                redirect("register.php");
+                redirect("login.php");
             } else {
                 set_mensaje(display_msj("Los datos no son validos, por favor intente otra vez", "error"));
                 redirect("register.php");
             }
         } else {
+            set_mensaje(display_msj("Los datos no son validos, por favor intente otra vez", "error"));
+            redirect("register.php");
+        }
+    }
 
+    function validar_user_login(){
+        if(isset($_POST['login'])){
+            $user_email = clean_string(trim($_POST['user_email']));
+            $user_pass = clean_string(trim($_POST['user_pass']));
+
+            if(login_user($user_email, $user_pass)){
+                redirect('./');
+            } else {
+                set_mensaje(display_msj("Tu correo o contraseña son incorrectos, intentalo otra vez", "error"));
+                redirect("login.php");
+            }
+        }
+    }
+
+    function login_user($email, $pass){
+        $query = query("SELECT * FROM usuarios WHERE user_email = '{$email}' AND user_status = 1");
+        if(contar_filas($query) == 1){
+            $fila = fetch_assoc($query);
+            $user_id = $fila['user_id'];
+            $user_names = $fila['user_names'];
+            $user_pass = $fila['user_pass'];
+            $user_rol = $fila['user_rol'];
+
+            if(password_verify($pass, $user_pass)){
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['user_names'] = $user_names;
+                $_SESSION['user_rol'] = $user_rol;
+                setcookie('email', $email, time() + 60);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
         }
     }
 ?>

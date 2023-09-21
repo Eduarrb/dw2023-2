@@ -44,4 +44,8 @@
             unset($_SESSION['mensaje']);
         }
     }
+
+    function contar_filas($query){
+        return mysqli_num_rows($query);
+    }
 ?>
