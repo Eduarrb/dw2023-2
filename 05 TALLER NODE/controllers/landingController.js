@@ -1,4 +1,9 @@
-import { Productos, Cart } from '../models/index.js';
+import { Productos, Cart, Pedidos } from '../models/index.js';
+import mercadopago from 'mercadopago';
+
+mercadopago.configure({
+    access_token: process.env.MERCADOPAGO_ACCESS_TOKEN,
+});
 
 const mostrarProductos = async (req, res) => {
     const productos = await Productos.findAll({});
@@ -68,16 +73,41 @@ const mostrarCarrito = async (req, res) => {
     });
     let total = 0;
     carrito.forEach(item => {
-        total += item.cantidad * item.producto.precio
-    })
-    res.render('landing/carrito.ejs', {
-        tituloPagina: `Kompi - Carrito`,
-        csrfToken: req.csrfToken(),
-        usuario: req.usuario,
-        carritoCanti: carrito.length,
-        carrito,
-        total
+        total += item.cantidad * item.producto.precio;
     });
+    // 🔥🔥 IMPLEMENTACION DE PRUEBA DE MERCADO DE PAGO
+    let preference = {
+        items: [
+            {
+                title: 'Pago Total',
+                unit_price: total,
+                quantity: 1,
+            },
+        ],
+        "back_urls": {
+            "success": `${process.env.BACKEND_URL}:${process.env.PORT}/cart/success`,
+            "failure": `${process.env.BACKEND_URL}:${process.env.PORT}/cart/failure`,
+            "pending": `${process.env.BACKEND_URL}:${process.env.PORT}/cart/pending`
+        },
+        "auto_return": "approved",
+    };
+    mercadopago.preferences
+        .create(preference)
+        .then(function (response) {
+            res.render('landing/carrito.ejs', {
+                tituloPagina: `Kompi - Carrito`,
+                csrfToken: req.csrfToken(),
+                usuario: req.usuario,
+                carritoCanti: carrito.length,
+                carrito,
+                total,
+                responseId: response.body.id,
+                mercadoPublicKey: process.env.MERCADOPAGO_PUBLIC_KEY
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 };
 
 const restarItem = async (req, res) => {
@@ -157,6 +187,32 @@ const quitarItem = async (req, res) => {
     return res.redirect('back');
 };
 
+const pedidoSuccess = async (req, res) => {
+    const { payment_id: pedidoId } = req.query;
+    const { id: usuarioId } = req.usuario;
+    await Pedidos.create({
+        pedidoId,
+        usuarioId
+    });
+    console.log('Pedido registrado correctamente');
+    res.redirect('/pedidos');
+}
+
+const mostrarPedidos = async (req, res) => {
+    const pedidos = await Pedidos.findAll({
+        where: {
+            usuarioId: req.usuario.id
+        }
+    })
+    console.log(pedidos);
+    res.render('landing/pedidos.ejs', {
+        tituloPagina: `Kompi - Carrito`,
+        usuario: req.usuario,
+        carritoCanti: req.carritoCanti,
+        pedidos
+    });
+}
+
 export {
     mostrarProductos,
     mostrarProducto,
@@ -164,5 +220,7 @@ export {
     mostrarCarrito,
     restarItem,
     sumarItem,
-    quitarItem
+    quitarItem, 
+    pedidoSuccess,
+    mostrarPedidos
 };

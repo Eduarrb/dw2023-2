@@ -6,7 +6,9 @@ import {
     mostrarCarrito,
     restarItem,
     sumarItem,
-    quitarItem
+    quitarItem,
+    pedidoSuccess,
+    mostrarPedidos
 } from '../controllers/landingController.js';
 import { protegerRuta, activeSession } from '../middlewares/protegerRuta.js';
 import { verificarCarrito } from '../middlewares/carrito.js';
@@ -22,5 +24,7 @@ router.get('/cart', protegerRuta,  mostrarCarrito);
 router.post('/cart/restar/:id', protegerRuta, restarItem);
 router.post('/cart/sumar/:id', protegerRuta, sumarItem);
 router.post('/cart/delete/:id', protegerRuta, quitarItem);
+router.get('/cart/success', protegerRuta, pedidoSuccess);
+router.get('/pedidos', protegerRuta, verificarCarrito, mostrarPedidos);
 
 export default router;

@@ -28,61 +28,122 @@
                 </div>
             </div>
             <div class="main__contenedor__table__body">
-                <% if(carrito){ %>
-                    <% carrito.forEach(prod => { %>
-                        <div class="main__contenedor__table__body__fila">
-                            <div class="main__contenedor__table__body__fila--name data-nombre">
-                                <%- prod.producto.nombre %>
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-desc">
-                                <%- prod.producto.descripcion %>
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-img">
-                                <img src="/uploads/productos/<%- prod.producto.imagen %>" alt="<%- prod.producto.nombre %>" />
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-precio">
-                                <%- prod.producto.precio %>
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-canti">
-                                <%- prod.cantidad %>
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-canti">
-                                <%- prod.cantidad * prod.producto.precio %>
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-ac">
-                                <form action="/cart/restar/<%- prod.productoId %>" method="post">
-                                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
-                                    <button type="submit" class="main__contenedor__table__body__fila--name--restar">
-                                        <i class="fa-solid fa-minus"></i>   
-                                    </button>    
-                                </form>
-                                <form action="/cart/sumar/<%- prod.productoId %>" method="post">
-                                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
-                                    <button type="submit" class="main__contenedor__table__body__fila--name--sumar ml-1">
-                                        <i class="fa-solid fa-plus"></i>   
-                                    </button>    
-                                </form>
-                                <form action="/cart/delete/<%- prod.productoId %>" method="post">
-                                    <input type="hidden" name="_csrf" value="<%- csrfToken %>">
-                                    <button type="submit" class="main__contenedor__table__body__fila--name--delete ml-1">
-                                        <i class="fa-solid fa-trash-can"></i> 
-                                    </button>    
-                                </form>
-                            </div>
-                        </div>
-                    <% }) %>
-                <% } else { %>
-                    <p>No tiene productos seleccionados</p>
+                <% if(carrito){ %> <% carrito.forEach(prod => { %>
+                <div class="main__contenedor__table__body__fila">
+                    <div
+                        class="main__contenedor__table__body__fila--name data-nombre"
+                    >
+                        <%- prod.producto.nombre %>
+                    </div>
+                    <div
+                        class="main__contenedor__table__body__fila--name data-desc"
+                    >
+                        <%- prod.producto.descripcion %>
+                    </div>
+                    <div
+                        class="main__contenedor__table__body__fila--name data-img"
+                    >
+                        <img
+                            src="/uploads/productos/<%- prod.producto.imagen %>"
+                            alt="<%- prod.producto.nombre %>"
+                        />
+                    </div>
+                    <div
+                        class="main__contenedor__table__body__fila--name data-precio"
+                    >
+                        <%- prod.producto.precio %>
+                    </div>
+                    <div
+                        class="main__contenedor__table__body__fila--name data-canti"
+                    >
+                        <%- prod.cantidad %>
+                    </div>
+                    <div
+                        class="main__contenedor__table__body__fila--name data-canti"
+                    >
+                        <%- prod.cantidad * prod.producto.precio %>
+                    </div>
+                    <div
+                        class="main__contenedor__table__body__fila--name data-ac"
+                    >
+                        <form
+                            action="/cart/restar/<%- prod.productoId %>"
+                            method="post"
+                        >
+                            <input
+                                type="hidden"
+                                name="_csrf"
+                                value="<%- csrfToken %>"
+                            />
+                            <button
+                                type="submit"
+                                class="main__contenedor__table__body__fila--name--restar"
+                            >
+                                <i class="fa-solid fa-minus"></i>
+                            </button>
+                        </form>
+                        <form
+                            action="/cart/sumar/<%- prod.productoId %>"
+                            method="post"
+                        >
+                            <input
+                                type="hidden"
+                                name="_csrf"
+                                value="<%- csrfToken %>"
+                            />
+                            <button
+                                type="submit"
+                                class="main__contenedor__table__body__fila--name--sumar ml-1"
+                            >
+                                <i class="fa-solid fa-plus"></i>
+                            </button>
+                        </form>
+                        <form
+                            action="/cart/delete/<%- prod.productoId %>"
+                            method="post"
+                        >
+                            <input
+                                type="hidden"
+                                name="_csrf"
+                                value="<%- csrfToken %>"
+                            />
+                            <button
+                                type="submit"
+                                class="main__contenedor__table__body__fila--name--delete ml-1"
+                            >
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <% }) %> <% } else { %>
+                <p>No tiene productos seleccionados</p>
                 <% } %>
             </div>
             <div class="main__contenedor__table__totalBox">
-                <span class="main__contenedor__table__totalBox--total">Total</span>
-                <span class="main__contenedor__table__totalBox--pagar">S/. <%- total %></span>
+                <span class="main__contenedor__table__totalBox--total"
+                    >Total</span
+                >
+                <span class="main__contenedor__table__totalBox--pagar"
+                    >S/. <%- total %></span
+                >
             </div>
             <form action="#" class="main__contenedor__table__checkout">
-                <input type="submit" value="Checkout">
+                <input type="submit" value="Checkout" />
             </form>
         </div>
+        <div id="wallet_container"></div>
     </div>
-</main>z
+</main>
 <script src="/js/app.js"></script>
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    const mp = new MercadoPago('<%- mercadoPublicKey %>');
+    const bricksBuilder = mp.bricks();
+    mp.bricks().create('wallet', 'wallet_container', {
+        initialization: {
+            preferenceId: "<%- responseId %>",
+            redirectMode: "modal"
+        },
+    });
+</script>
