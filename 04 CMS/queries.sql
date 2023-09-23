@@ -12,3 +12,12 @@ CREATE TABLE usuarios (
     user_status TINYINT DEFAULT 0 COMMENT 'status 0: usuario no activo, status 1: usaurio activo',
     user_rol VARCHAR(10) NOT NULL DEFAULT 'cliente'
 )
+
+CREATE TABLE productos (
+    prod_id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    prod_nombre VARCHAR(50) NOT NULL,
+    prod_descri TEXT NOT NULL,
+    prod_precio INT NOT NULL,
+    prod_canti INT NOT NULL,
+    prod_img TEXT NOT NULL
+)
