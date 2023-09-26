@@ -2,37 +2,37 @@
 
 <main class="main">
     <div class="main__contenedor contenedor">
-        <div class="main__contenedor__table">
+        <div class="main__contenedor__pedido">
             <%- //JSON.stringify(carrito, undefined, 2) %>
-            <div class="main__contenedor__table__header">
-                <div class="main__contenedor__table__header--name data-nombre">
+            <div class="main__contenedor__pedido__header">
+                <div class="main__contenedor__pedido__header--name data-nombre">
                     ID PEDIDO
                 </div>
-                <div class="main__contenedor__table__header--name data-desc">
+                <div class="main__contenedor__pedido__header--name data-desc">
                     FECHA
                 </div>
-                <div class="main__contenedor__table__header--name data-ac">
+                <div class="main__contenedor__pedido__header--name data-ac">
                     ACCIONES
                 </div>
             </div>
-            <div class="main__contenedor__table__body">
+            <div class="main__contenedor__pedido__body">
                 <% if(pedidos){ %>
                     <% pedidos.forEach(e => { %>
-                        <div class="main__contenedor__table__body__fila">
+                        <div class="main__contenedor__pedido__body__fila">
                             <div
-                                class="main__contenedor__table__body__fila--name data-nombre"
+                                class="main__contenedor__pedido__body__fila--name data-nombre"
                             >
                                 <%- e.pedidoId %>
                             </div>
                             <div
-                                class="main__contenedor__table__body__fila--name data-desc"
+                                class="main__contenedor__pedido__body__fila--name data-desc"
                             >
                                 <%- e.createdAt %>
                             </div>
                             <div
-                                class="main__contenedor__table__body__fila--name data-ac"
+                                class="main__contenedor__pedido__body__fila--name data-ac"
                             >
-                                <a href="#" class="main__contenedor__table__body__fila--name--sumar">VER</a>
+                                <a href="/pedidos/<%- e.pedidoId %>" class="main__contenedor__pedido__body__fila--name--sumar">VER</a>
                             </div>
                         </div>
                     <% }) %>

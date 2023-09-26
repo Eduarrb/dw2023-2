@@ -204,7 +204,6 @@ const mostrarPedidos = async (req, res) => {
             usuarioId: req.usuario.id
         }
     })
-    console.log(pedidos);
     res.render('landing/pedidos.ejs', {
         tituloPagina: `Kompi - Carrito`,
         usuario: req.usuario,
