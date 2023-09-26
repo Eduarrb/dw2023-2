@@ -17,7 +17,7 @@ CREATE TABLE productos (
     prod_id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
     prod_nombre VARCHAR(50) NOT NULL,
     prod_descri TEXT NOT NULL,
-    prod_precio INT NOT NULL,
+    prod_precio DECIMAL(10,2) NOT NULL,
     prod_canti INT NOT NULL,
     prod_img TEXT NOT NULL
 )

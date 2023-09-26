@@ -1,5 +1,6 @@
 <div class="admin__data">
     <h1 class="titulo-n2 text-center mb-5">Todos Los productos</h1>
+    <?php mostrar_msj(); ?>
     <a href="index.php?productos_add" class="btn btnBG-naranja color-blanco mb-5">Crear Producto</a>
     
     <div class="admin__data__box">
