@@ -48,4 +48,15 @@
     function contar_filas($query){
         return mysqli_num_rows($query);
     }
+
+    function validarAdmin(){
+        if(!isset($_COOKIE['email'])){
+            session_destroy();
+            redirect("../login.php");
+        }
+        if($_SESSION['user_rol'] != 'admin'){
+            set_mensaje(display_msj("No tienes autorización!!!", "error"));
+            redirect("../login.php");
+        }
+    }
 ?>

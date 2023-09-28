@@ -98,7 +98,7 @@
                 $_SESSION['user_id'] = $user_id;
                 $_SESSION['user_names'] = $user_names;
                 $_SESSION['user_rol'] = $user_rol;
-                setcookie('email', $email, time() + 60);
+                setcookie('email', $email, time() + 86400);
                 return true;
             } else {
                 return false;

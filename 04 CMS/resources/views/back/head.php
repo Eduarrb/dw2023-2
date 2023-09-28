@@ -1,9 +1,3 @@
-<?php
-    if(!isset($_COOKIE['email'])){
-        session_destroy();
-        redirect("../login.php");
-    }
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

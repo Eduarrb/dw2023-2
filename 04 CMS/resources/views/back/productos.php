@@ -28,30 +28,7 @@
             </div>
         </div>
         <div class="admin__data__box__body">
-            <div class="admin__data__box__body__fila">
-                <div class="admin__data__box__body__fila--name data-id">
-                   
-                </div>
-                <div class="admin__data__box__body__fila--name data-nombre">
-                    
-                </div>
-                <div class="admin__data__box__body__fila--name data-desc">
-                   
-                </div>
-                <div class="admin__data__box__body__fila--name data-img">
-                    <img src="" alt="">
-                </div>
-                <div class="admin__data__box__body__fila--name data-precio">
-                    S/. 
-                </div>
-                <div class="admin__data__box__body__fila--name data-canti">
-                    
-                </div>
-                <div class="admin__data__box__body__fila--name data-ac">
-                    <a href="#" class="admin__data__box__body__fila--name--editar">editar</a>
-                    <a href="#" class="admin__data__box__body__fila--name--borrar ml-1">borrar</a>
-                </div>
-            </div>
+            <?php get_productos(); ?>
         </div>
     </div>
 </div>
