@@ -59,4 +59,11 @@
             redirect("../login.php");
         }
     }
+    function existeItem($tabla, $campo, $id){
+        $query = query("SELECT * FROM {$tabla} WHERE {$campo} = {$id}");
+        if(contar_filas($query) == 1){
+            return true;
+        }
+        return false;
+    }
 ?>

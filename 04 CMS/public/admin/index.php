@@ -21,6 +21,10 @@
             validarAdmin();
             include VIEW_BACK . DS . "productos_edit.php";
         }
+        if(isset($_GET['productos_delete'])){
+            validarAdmin();
+            include VIEW_BACK . DS . "productos_delete.php";
+        }
     ?>
 </section>
 <?php include VIEW_BACK . DS . "footer.php"; ?>

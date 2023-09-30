@@ -4,6 +4,7 @@
         <?php
             mostrar_msj();
             $fila = get_productoEdit();
+            post_productoEdit($fila['prod_id'], $fila['prod_img']);
         ?>
     </p>
     <form class="admin__data__form mt-4" method="post" enctype="multipart/form-data">
@@ -63,7 +64,7 @@
             </div>
         </div>
         <div class="form-group mt-5">
-            <input type="submit" value="Guardar" class="btnFullWidth color-blanco" name="guardar">
+            <input type="submit" value="Editar" class="btnFullWidth color-blanco" name="editar">
         </div>
     </form>
     
