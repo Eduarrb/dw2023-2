@@ -22,11 +22,15 @@
             } else {
                 $query = query("INSERT INTO carrito (cart_user_id, cart_prod_id, cart_canti) VALUES ({$user_id}, {$prod_id}, {$prod_canti})");
                 set_mensaje(display_msj("Producto Agregado correctamente al carrito", "mensaje"));
-                redirect("producto.php?id={$prod_id}");
+                redirect("carrito.php?user={$user_id}");
             }
         }
     }
 
-    
+    function get_carrito(){
+        if(!post_validarSesionCliente() || !isset($_GET['user']) || $_GET['user'] != $_SESSION['user_id']){
+            redirect("./");
+        }
+    }
 
 ?>

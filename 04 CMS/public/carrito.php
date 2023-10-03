@@ -7,6 +7,7 @@
         <main class="main marginMain">
             <div class="main__contenedor contenedor">
                 <div class="main__contenedor__table">
+                    <?php get_carrito(); ?>
                     <div class="main__contenedor__table__header">
                         <div class="main__contenedor__table__header--name data-nombre">
                             NOMBRE
