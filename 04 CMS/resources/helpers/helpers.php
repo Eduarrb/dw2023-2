@@ -66,4 +66,12 @@
         }
         return false;
     }
+    
+    function post_validarSesionCliente(){
+        if(isset($_SESSION['user_rol']) && isset($_SESSION['user_names']) && isset($_SESSION['user_id'])){
+            return true;
+        }
+        return false;
+    }
+
 ?>

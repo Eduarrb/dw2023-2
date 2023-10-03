@@ -21,3 +21,20 @@ CREATE TABLE productos (
     prod_canti INT NOT NULL,
     prod_img TEXT NOT NULL
 )
+
+CREATE TABLE carrito (
+    cart_id INT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    cart_user_id INT(10) UNSIGNED NOT NULL,
+    cart_prod_id INT(10) UNSIGNED NOT NULL,
+    cart_canti INT NOT NULL
+)
+
+ALTER TABLE carrito
+    ADD CONSTRAINT fk_userId FOREIGN KEY (cart_user_id)
+    REFERENCES usuarios (user_id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+
+ALTER TABLE carrito
+    ADD CONSTRAINT fk_prodId FOREIGN KEY (cart_prod_id)
+    REFERENCES productos (prod_id)
+    ON DELETE CASCADE ON UPDATE CASCADE

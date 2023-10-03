@@ -7,7 +7,10 @@
         <main class="main marginMain">
             <div class="main__contenedor contenedor">
                 <section class="producto pt-5 pb-5">
-                    <?php $fila = get_productoFront(); ?>
+                    <?php 
+                        mostrar_msj();
+                        $fila = get_productoFront(); 
+                    ?>
                     <div class="producto__detalle">
                         <div class="producto__detalle__img">
                             <img src="img/productos/<?php echo $fila['prod_img']; ?>" alt="<?php echo $fila['prod_nombre']; ?>">

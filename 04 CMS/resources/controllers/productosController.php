@@ -148,10 +148,4 @@ DELIMITER;
             }
         }
     }
-
-    function post_addCarrito(){
-        if(isset($_POST['addCarrito'])){
-            echo 'funciona';
-        }
-    }
 ?>
