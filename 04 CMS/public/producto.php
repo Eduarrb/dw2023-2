@@ -25,10 +25,10 @@
                             <p class="descri">
                                 <?php echo $fila['prod_descri']; ?>
                             </p>
-                            <?php post_addCarrito(); ?>
+                            <?php post_addCarrito($fila['prod_canti']); ?>
                             <form class="producto__detalle__data__form" method="post">
                                 <div class="producto__detalle__data__form__canti">
-                                    <input type="number" value="1" name="prod_canti">
+                                    <input type="number" value="1" name="prod_canti" max="<?php echo $fila['prod_canti']; ?>">
                                 </div>
                                 <div class="producto__detalle__data__form__btn">
                                     <input type="submit" value="Add to cart" name="addCarrito">
