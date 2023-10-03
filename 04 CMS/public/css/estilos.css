@@ -179,6 +179,17 @@ trix-editor {
   cursor: pointer;
 }
 
+.btnFullWidth-blue {
+  font-size: 1.6rem;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  padding: 0.8rem 2.2rem;
+  width: 100%;
+  border: none;
+  background-color: #3498db;
+  cursor: pointer;
+}
+
 .btnBG-naranja {
   background-color: #ff7714;
   transition: all 0.3s;
@@ -1017,6 +1028,52 @@ trix-editor {
   font-size: 1.6rem;
   font-weight: 700;
   text-decoration: underline;
+}
+.productos__comentariosBox {
+  margin-top: 2rem;
+  border-top: 4px solid #ff7714;
+  padding-top: 3rem;
+}
+.productos__comentariosBox__item {
+  display: flex;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.productos__comentariosBox__item__imgBox {
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  margin-right: 2rem;
+}
+.productos__comentariosBox__item__imgBox img {
+  width: 100%;
+  border-radius: 50%;
+}
+.productos__comentariosBox__item__data {
+  width: calc(100% - 7rem);
+}
+.productos__comentariosBox__item__data__top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+}
+.productos__comentariosBox__item__data__top--nombre {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.productos__comentariosBox__item__data__bottom {
+  margin-top: 1rem;
+}
+.productos__comentariosBox__item__data__bottom__coment {
+  font-size: 1.8rem;
+  font-family: "Rajdhani", sans-serif;
+}
+.productos__comentariosBox__item__data__bottom__stars {
+  margin-top: 1rem;
+  color: rgb(254, 206, 81);
+  font-size: 1.6rem;
 }
 
 .producto__detalle {

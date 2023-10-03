@@ -1,0 +1,122 @@
+.productos{
+    &__headingBox{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        &__col{
+            display: flex;
+            align-items: center;
+            @media only screen and (max-width: $bp-small){
+                width: 100%;
+            }
+            p{
+                @media only screen and (max-width: $bp-large){
+                    display: none;
+                }
+            }
+        }
+    }
+    &__box{
+        border-top: 3px solid $color-naranja-primario;
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 10rem;
+        &__item{
+            width: calc(100% / 6);
+            // border: 1px solid rgba(black, .08);
+            border-left: 1px solid rgba(black, .08);
+            border-bottom: 1px solid rgba(black, .08);
+            padding-left: 1rem;
+            padding-right: 1rem;
+            padding-bottom: 4rem;
+            @media only screen and (max-width: $bp-large){
+                width: 25%;
+            }
+            @media only screen and (max-width: $bp-medium){
+                width: 50%;
+            }
+            @media only screen and (max-width: $bp-small){
+                width: 100%;
+            }
+            &:hover{
+                background-color: rgba(black, .08);
+                transition: all .3s;
+            }
+            &:nth-child(6){
+                // RETO DE 6 EN 6 ????
+                border-right: 1px solid rgba(black, .08);
+            }
+            img{
+                width: 100%;
+                display: block;
+            }
+            p{
+                font-family: $font-open;
+                font-size: 1.2rem;
+                color: rgb(8,17,36);
+                margin-bottom: 1rem;
+            }
+            &__precio{
+                font-family: $font-raj;
+                &--real{
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    color: rgba(black, .4);
+                    text-decoration: line-through;
+                }
+                &--oferta{
+                    color: $color-naranja-primario;
+                    font-size: 1.6rem;
+                    font-weight: 700;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    &__comentariosBox{
+        margin-top: 2rem;
+        border-top: 4px solid $color-naranja-primario;
+        padding-top: 3rem;
+        &__item{
+            display: flex;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(black, .1);
+            &__imgBox{
+                width: 7rem;
+                height: 7rem;
+                border-radius: 50%;
+                margin-right: 2rem;
+                img{
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+            &__data{
+                width: calc(100% - 7rem);
+                &__top{
+                    display: flex;
+                    justify-content: space-between;
+                    font-size: 1.6rem;
+                    font-family: $font-open;
+                    &--nombre{
+                        font-weight: 700;
+                        font-size: 1.8rem;
+                    }
+                }
+                &__bottom{
+                    margin-top: 1rem;
+                    &__coment{
+                        font-size: 1.8rem;
+                        font-family: $font-raj;
+                    }
+                    &__stars{
+                        margin-top: 1rem;
+                        color: rgb(254,206,81);
+                        font-size: 1.6rem;
+                    }
+                }
+            }
+        }
+    }
+}

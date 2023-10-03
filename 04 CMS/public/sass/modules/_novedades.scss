@@ -1,0 +1,74 @@
+.novedades{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 1.5rem;
+    @media only screen and (max-width: $bp-medium){
+        row-gap: 1.5rem;
+    }
+    &__col{
+        // background-color: peru;
+        width: calc(50% - 1.5rem / 2);
+        @media only screen and (max-width: $bp-medium){
+            width: 100%;
+        }
+        &:first-child{
+            // background-image: url(../img/build-pc.jpg);
+            // color: rgba(red, .2)
+            background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/build-pc.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            padding-top: 40rem;
+            @media only screen and (max-width: $bp-large){
+                padding-top: 25rem;
+            }
+            @media only screen and (max-width: $bp-medium){
+                padding-top: 8rem;
+            }
+        }
+        &:last-child{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        &__item{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            @media only screen and (max-width: $bp-medium){
+                padding-top: 8rem;
+            }
+            &:first-child{
+                width: 100%;
+                background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/run-gaming.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            &:nth-child(even){
+                background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/performance.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            &:last-child{
+                background: linear-gradient(180deg, rgba(#f4f6fb, .1) 0%, rgba(#081124, .9) 100%), url(../img/game-forwin.jpg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+            &:not(:first-child){
+                width: calc(50% - (1.5rem / 2));
+                @media only screen and (max-width: $bp-large){
+                    width: 100%;
+                }
+                @media only screen and (max-width: $bp-medium){
+                    width: calc(50% - (1.5rem / 2));
+                }
+                @media only screen and (max-width: $bp-small){
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

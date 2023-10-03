@@ -1,0 +1,254 @@
+.main{
+    margin-top: 14.2rem;
+    &__contenedor{
+        &__pedido{
+            .data{
+                &-nombre{
+                    width: calc(100% / 3);
+                }
+                &-desc{
+                    width: calc(100% / 3);
+                }
+                &-ac{
+                    width: calc(100% / 3);
+                }
+            }
+            &__header{
+                display: flex;
+                border-bottom: .2rem solid black;
+                padding-bottom: .5rem;
+                width: 100%;
+                &--name{
+                    // flex-grow: 1;
+                    font-size: 1.6rem;
+                    font-family: $font-raj;
+                    font-weight: 700;
+                    color: #7f8c8d;
+                    text-align: center;
+                }
+            }
+            &__body{
+                &__fila{
+                    display: flex;
+                    border-bottom: 1px solid rgba(black, .2);
+                    width: 100%;
+                    &--name {
+                        // flex-grow: 1;
+                        font-size: 1.6rem;
+                        font-family: $font-raj;
+                        font-weight: 700;
+                        text-align: center;
+                        padding: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &--restar{
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            background-color: #f1c40f;
+                            border: none;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #f39c12;
+                            }
+                        }
+                        &--sumar{
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            background-color: #1abc9c;
+                            border: none;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #16a085;
+                            }
+                        }
+                        &--delete{
+                            background-color: #e74c3c;
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            outline: 0;
+                            border: none;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #c0392b;
+                            }
+                        }
+                    }
+                }
+            }
+            &__totalBox{
+                font-family: $font-open;
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: .2rem solid black;
+                &--total{
+                    width: 80%;
+                    font-size: 2.2rem;
+                    text-align: center;
+                    font-weight: 700;
+                    padding: 1.5rem 0;
+                }
+                &--pagar{
+                    width: 20%;
+                    font-size: 2.2rem;
+                    text-align: left;
+                    padding: 1.5rem 0;
+                }
+            }
+            &__checkout{
+                text-align: right;
+                margin-top: 1rem;
+                input[type=submit]{
+                    border: none;
+                    font-family: $font-raj;
+                    font-size: 2.6rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    background-color: #e67e22;
+                    color: white;
+                    padding: 1rem 3rem;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                }
+            }
+        }
+        &__table{
+            .data{
+                &-id{
+                    width: 15%;
+                }
+                &-nombre{
+                    width: 15%;
+                }
+                &-desc{
+                    width: 20%;
+                }
+                &-img{
+                    width: 10%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                &-precio{
+                    width: 10%;
+                }
+                &-canti{
+                    width: 10%;
+                }
+                &-ac{
+                    width: 20%;
+                }
+            }
+            &__header{
+                display: flex;
+                border-bottom: .2rem solid black;
+                padding-bottom: .5rem;
+                width: 100%;
+                &--name{
+                    // flex-grow: 1;
+                    font-size: 1.6rem;
+                    font-family: $font-raj;
+                    font-weight: 700;
+                    color: #7f8c8d;
+                    text-align: center;
+                }
+            }
+            &__body{
+                &__fila{
+                    display: flex;
+                    border-bottom: 1px solid rgba(black, .2);
+                    width: 100%;
+                    &--name {
+                        // flex-grow: 1;
+                        font-size: 1.6rem;
+                        font-family: $font-raj;
+                        font-weight: 700;
+                        text-align: center;
+                        padding: 1rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &--restar{
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            background-color: #f1c40f;
+                            border: none;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #f39c12;
+                            }
+                        }
+                        &--sumar{
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            background-color: #1abc9c;
+                            border: none;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #16a085;
+                            }
+                        }
+                        &--delete{
+                            background-color: #e74c3c;
+                            color: white;
+                            padding: 1rem 2rem;
+                            border-radius: .5rem;
+                            transition: all .3s;
+                            outline: 0;
+                            border: none;
+                            &:hover{
+                                transition: all .3s;
+                                background-color: #c0392b;
+                            }
+                        }
+                    }
+                }
+            }
+            &__totalBox{
+                font-family: $font-open;
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: .2rem solid black;
+                &--total{
+                    width: 80%;
+                    font-size: 2.2rem;
+                    text-align: center;
+                    font-weight: 700;
+                    padding: 1.5rem 0;
+                }
+                &--pagar{
+                    width: 20%;
+                    font-size: 2.2rem;
+                    text-align: left;
+                    padding: 1.5rem 0;
+                }
+            }
+            &__checkout{
+                text-align: right;
+                margin-top: 1rem;
+                input[type=submit]{
+                    border: none;
+                    font-family: $font-raj;
+                    font-size: 2.6rem;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    background-color: #e67e22;
+                    color: white;
+                    padding: 1rem 3rem;
+                    border-radius: 1rem;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
