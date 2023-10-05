@@ -30,7 +30,48 @@
     function get_carrito(){
         if(!post_validarSesionCliente() || !isset($_GET['user']) || $_GET['user'] != $_SESSION['user_id']){
             redirect("./");
+        } else {
+            $user_id = $_SESSION['user_id'];
+            $query = query("SELECT * FROM carrito a INNER JOIN productos b ON a.cart_prod_id = b.prod_id WHERE cart_user_id = {$user_id}");
+            while($fila = fetch_assoc($query)){
+                $producto = <<<DELIMITER
+                    <div class="main__contenedor__table__body__fila">
+                        <div class="main__contenedor__table__body__fila--name data-nombre">
+                        </div>
+                        <div class="main__contenedor__table__body__fila--name data-desc">
+                        </div>
+                        <div class="main__contenedor__table__body__fila--name data-img">
+                            <img src="/uploads/productos/" alt="" />
+                        </div>
+                        <div class="main__contenedor__table__body__fila--name data-precio">
+                        </div>
+                        <div class="main__contenedor__table__body__fila--name data-canti">
+                        </div>
+                        <div class="main__contenedor__table__body__fila--name data-canti">
+                        </div>
+                        <div class="main__contenedor__table__body__fila--name data-ac">
+                            <form action="/cart/restar/" method="post">
+                                <button type="submit" class="main__contenedor__table__body__fila--name--restar">
+                                    <i class="fa-solid fa-minus"></i>
+                                </button>
+                            </form>
+                            <form action="/cart/sumar/" method="post">
+                                <button type="submit" class="main__contenedor__table__body__fila--name--sumar ml-1">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                            </form>
+                            <form action="/cart/delete/" method="post">
+                                <button type="submit" class="main__contenedor__table__body__fila--name--delete ml-1">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+DELIMITER;
+                echo $producto;
+            }
         }
     }
+    
 
 ?>
