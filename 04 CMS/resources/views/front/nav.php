@@ -46,10 +46,11 @@
                             <a href="#" class="nav__top__contenedor__menuRight__menu__item--link">
                                 <i class="fa-solid fa-dollar-sign"></i>0
                             </a>
-                            <a href="#" class="nav__top__contenedor__menuRight__menu__item--link">
+                            <?php get_carritoIcon(); ?>
+                            <!-- <a href="#" class="nav__top__contenedor__menuRight__menu__item--link">
                                 <i class="fa-solid fa-bag-shopping"></i>
-                                <span>0</span>
-                            </a>
+                                <span>3</span>
+                            </a> -->
                         </li>
                         <li class="nav__top__contenedor__menuRight__menu__item">
                             <i class="nav__top__contenedor__menuRight__menu__item--icon fa-solid fa-headset"></i>

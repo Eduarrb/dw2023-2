@@ -32,47 +32,15 @@
                         </div>
                     </div>
                     <div class="main__contenedor__table__body">
-                        <?php get_carrito(); ?>
-                        <!-- <div class="main__contenedor__table__body__fila">
-                            <div class="main__contenedor__table__body__fila--name data-nombre">
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-desc">
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-img">
-                                <img src="/uploads/productos/" alt="" />
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-precio">
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-canti">
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-canti">
-                            </div>
-                            <div class="main__contenedor__table__body__fila--name data-ac">
-                                <form action="/cart/restar/" method="post">
-                                    <button type="submit" class="main__contenedor__table__body__fila--name--restar">
-                                        <i class="fa-solid fa-minus"></i>
-                                    </button>
-                                </form>
-                                <form action="/cart/sumar/" method="post">
-                                    <button type="submit" class="main__contenedor__table__body__fila--name--sumar ml-1">
-                                        <i class="fa-solid fa-plus"></i>
-                                    </button>
-                                </form>
-                                <form action="/cart/delete/" method="post">
-                                    <button type="submit" class="main__contenedor__table__body__fila--name--delete ml-1">
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div> -->
-                        <p>No tiene productos seleccionados</p>
+                        <?php $total = get_carrito(); ?>
+                        <!-- <p>No tiene productos seleccionados</p> -->
                     </div>
                     <div class="main__contenedor__table__totalBox">
                         <span class="main__contenedor__table__totalBox--total"
                             >Total</span
                         >
                         <span class="main__contenedor__table__totalBox--pagar"
-                            >S/. </span
+                            >S/. <?php echo $total; ?></span
                         >
                     </div>
                     <form action="#" class="main__contenedor__table__checkout">
