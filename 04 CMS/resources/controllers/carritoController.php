@@ -80,18 +80,21 @@ DELIMITADOR;
                             S/ {$subTotal}
                         </div>
                         <div class="main__contenedor__table__body__fila--name data-ac">
-                            <form action="/cart/restar/" method="post">
-                                <button type="submit" class="main__contenedor__table__body__fila--name--restar">
+                            <form method="post">
+                                <input type="hidden" name="prod_id" value="{$fila['cart_prod_id']}">
+                                <button type="submit" class="main__contenedor__table__body__fila--name--restar" name="prod_restar">
                                     <i class="fa-solid fa-minus"></i>
                                 </button>
                             </form>
-                            <form action="/cart/sumar/" method="post">
-                                <button type="submit" class="main__contenedor__table__body__fila--name--sumar ml-1">
+                            <form method="post">
+                                <input type="hidden" name="prod_id" value="{$fila['cart_prod_id']}">
+                                <button type="submit" class="main__contenedor__table__body__fila--name--sumar ml-1" name="prod_add">
                                     <i class="fa-solid fa-plus"></i>
                                 </button>
                             </form>
-                            <form action="/cart/delete/" method="post">
-                                <button type="submit" class="main__contenedor__table__body__fila--name--delete ml-1">
+                            <form method="post">
+                                <input type="hidden" name="prod_id" value="{$fila['cart_prod_id']}">
+                                <button type="submit" class="main__contenedor__table__body__fila--name--delete ml-1" name="prod_remove">
                                     <i class="fa-solid fa-trash-can"></i>
                                 </button>
                             </form>
@@ -103,6 +106,64 @@ DELIMITER;
             return $total;
         }
     }
-    
 
+    function post_prodRemove(){
+        if(isset($_POST['prod_remove'])){
+            $prod_id = clean_string(trim($_POST['prod_id']));
+            $user_id = $_SESSION['user_id'];
+            $query = query("SELECT * FROM carrito a INNER JOIN productos b ON a.cart_prod_id = b.prod_id WHERE cart_prod_id = {$prod_id} AND cart_user_id = {$user_id}");
+            if(contar_filas($query) != 1){
+                set_mensaje(display_msj("Estas incurriendo a malas practicas", "error"));
+                redirect("carrito.php?user={$user_id}");
+            } else {
+                $query = query("DELETE FROM carrito WHERE cart_prod_id = {$prod_id} AND cart_user_id = {$user_id}");
+                redirect("carrito.php?user={$user_id}");
+            }
+        }
+    }
+    
+    function post_productoAdd(){
+        if(isset($_POST['prod_add'])){
+            $prod_id = clean_string(trim($_POST['prod_id']));
+            $user_id = $_SESSION['user_id'];
+            $query = query("SELECT * FROM carrito a INNER JOIN productos b ON a.cart_prod_id = b.prod_id WHERE cart_prod_id = {$prod_id} AND cart_user_id = {$user_id}");
+            if(contar_filas($query) != 1){
+                set_mensaje(display_msj("Estas incurriendo a malas practicas", "error"));
+                redirect("carrito.php?user={$user_id}");
+            } else {
+                $fila = fetch_assoc($query);
+                $prod_canti = $fila['prod_canti'];
+                $cart_canti = $fila['cart_canti'];
+                if($cart_canti >= $prod_canti){
+                    set_mensaje(display_msj("No tenemos mas cantidad en el almacen", "error"));
+                    redirect("carrito.php?user={$user_id}");
+                } else {
+                    $query = query("UPDATE carrito SET cart_canti = cart_canti + 1 WHERE cart_prod_id = {$prod_id} AND cart_user_id = {$user_id}");
+                    redirect("carrito.php?user={$user_id}");
+                }
+            }
+        }
+    }
+
+    function post_prodDisminur(){
+        if(isset($_POST['prod_restar'])){
+            $prod_id = clean_string(trim($_POST['prod_id']));
+            $user_id = $_SESSION['user_id'];
+            $query = query("SELECT * FROM carrito a INNER JOIN productos b ON a.cart_prod_id = b.prod_id WHERE cart_prod_id = {$prod_id} AND cart_user_id = {$user_id}");
+            if(contar_filas($query) != 1){
+                set_mensaje(display_msj("Estas incurriendo a malas practicas", "error"));
+                redirect("carrito.php?user={$user_id}");
+            } else {
+                $fila = fetch_assoc($query);
+                $cart_canti = $fila['cart_canti'];
+                if($cart_canti <= 1){
+                    set_mensaje(display_msj("No pudes poner una cantidad menor a 1", "error"));
+                    redirect("carrito.php?user={$user_id}");
+                } else {
+                    $query = query("UPDATE carrito SET cart_canti = cart_canti - 1 WHERE cart_prod_id = {$prod_id} AND cart_user_id = {$user_id}");
+                    redirect("carrito.php?user={$user_id}");
+                }
+            }
+        }
+    }
 ?>

@@ -7,7 +7,7 @@
         <main class="main marginMain">
             <div class="main__contenedor contenedor">
                 <div class="main__contenedor__table">
-                    
+                    <?php mostrar_msj(); ?>
                     <div class="main__contenedor__table__header">
                         <div class="main__contenedor__table__header--name data-nombre">
                             NOMBRE
@@ -32,7 +32,12 @@
                         </div>
                     </div>
                     <div class="main__contenedor__table__body">
-                        <?php $total = get_carrito(); ?>
+                        <?php 
+                            $total = get_carrito();
+                            post_productoAdd(); 
+                            post_prodDisminur();
+                            post_prodRemove();
+                        ?>
                         <!-- <p>No tiene productos seleccionados</p> -->
                     </div>
                     <div class="main__contenedor__table__totalBox">
