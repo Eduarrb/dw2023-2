@@ -48,6 +48,12 @@ DELIMITADOR;
         }
     }
 
+    require 'vendor/autoload.php';
+    use MercadoPago\MercadoPagoConfig;
+    use MercadoPago\Client\Preference\PreferenceClient;
+    MercadoPagoConfig::setAccessToken("PROD_ACCESS_TOKEN");
+    $client = new PreferenceClient();
+
     function get_carrito(){
         if(!post_validarSesionCliente() || !isset($_GET['user']) || $_GET['user'] != $_SESSION['user_id']){
             set_mensaje(display_msj("Debes estar registrado o iniciar sesión para poder acceder al carrito", "error"));
@@ -103,7 +109,25 @@ DELIMITADOR;
 DELIMITER;
                 echo $producto;
             }
-            return $total;
+            global $client, $preference;
+            $preference = $client->create([
+                "items"=> array(
+                    array(
+                    "title" => "Total a pagar",
+                    "quantity" => 1,
+                    "currency_id" => "PE",
+                    "unit_price" => $total
+                    )
+                ),
+                "back_urls" => array(
+                    "success" => "http://localhost/dw2023-2/04%20CMS/public/success.php",
+                    "failure" => "http://localhost/dw2023-2/04%20CMS/public/failure.php",
+                    "pending" => "http://localhost/dw2023-2/04%20CMS/public/pending.php"
+                ),
+                "auto_return" => "approved"
+            ]);
+
+            return [$total, $preference->id];
         }
     }
 

@@ -33,7 +33,7 @@
                     </div>
                     <div class="main__contenedor__table__body">
                         <?php 
-                            $total = get_carrito();
+                            $data = get_carrito();
                             post_productoAdd(); 
                             post_prodDisminur();
                             post_prodRemove();
@@ -45,14 +45,26 @@
                             >Total</span
                         >
                         <span class="main__contenedor__table__totalBox--pagar"
-                            >S/. <?php echo $total; ?></span
+                            >S/. <?php echo $data[0]; ?></span
                         >
                     </div>
                     <form action="#" class="main__contenedor__table__checkout">
                         <input type="submit" value="Checkout" />
                     </form>
+                    <div id="wallet_container"></div>
                 </div>
             </div>
         </main>
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+            const mp = new MercadoPago('YOUR_PUBLIC_KEY');
+            const bricksBuilder = mp.bricks();
+            mp.bricks().create("wallet", "wallet_container", {
+                initialization: {
+                    preferenceId: "<?php echo $data[1]; ?>",
+                    redirectMode: "modal"                
+                },
+            });
+        </script>
     <?php include VIEW_FRONT . DS . "footer.php"; ?>
        

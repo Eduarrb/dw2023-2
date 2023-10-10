@@ -38,3 +38,16 @@ ALTER TABLE carrito
     ADD CONSTRAINT fk_prodId FOREIGN KEY (cart_prod_id)
     REFERENCES productos (prod_id)
     ON DELETE CASCADE ON UPDATE CASCADE
+
+CREATE TABLE pedidos (
+    ped_pref_id TEXT NOT NULL,
+    ped_pay_id INT NOT NULL,
+    ped_user_id INT(10) UNSIGNED NOT NULL,
+    ped_status VARCHAR(25) NOT NULL,
+    ped_fecha DATETIME NOT NULL
+)
+
+ALTER TABLE pedidos
+    ADD CONSTRAINT fk_pedUserId FOREIGN KEY (ped_user_id)
+    REFERENCES usuarios (user_id)
+    ON DELETE CASCADE ON UPDATE CASCADE
